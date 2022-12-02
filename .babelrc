@@ -16,10 +16,11 @@
       {
         "root": ["."],
         "alias": {
-          "@types": "./types",
+          "@type": "./type",
           "@styles": "./styles",
           "@components": "./components",
-          "@shared": "./shared"
+          "@shared": "./shared",
+          "@constants": "./constants"
         }
       }
     ],
