@@ -8,7 +8,7 @@
         }
       }
     ],
-    ["@babel/preset-env", { "useBuiltIns": "usage", "corejs": 2 }]
+    ["@babel/preset-env", { "useBuiltIns": "usage", "corejs": "2.6.12" }]
   ],
   "plugins": [
     [
@@ -18,7 +18,8 @@
         "alias": {
           "@types": "./types",
           "@styles": "./styles",
-          "@components": "./components"
+          "@components": "./components",
+          "@shared": "./shared"
         }
       }
     ],
