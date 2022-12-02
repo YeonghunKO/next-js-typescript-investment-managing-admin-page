@@ -1,4 +1,4 @@
-import type { ColorProps } from '@types/shared/color';
+import type { ColorProps } from '@type/styles/color';
 
 const backgroundColor = (props: ColorProps) => {
   // Fallback value if we can't get access to props
@@ -12,7 +12,16 @@ const backgroundColor = (props: ColorProps) => {
 
   switch (props.variant) {
     case 'primary':
-      colour = props.theme.purple800;
+      colour = props.theme.primary;
+      break;
+    case 'primary100':
+      colour = props.theme.primary100;
+      break;
+    case 'primary500':
+      colour = props.theme.primary500;
+      break;
+    case 'primary900':
+      colour = props.theme.primary900;
       break;
     case 'secondary':
       colour = props.theme.secondary;

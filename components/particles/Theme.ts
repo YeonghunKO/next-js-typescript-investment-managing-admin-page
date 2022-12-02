@@ -49,4 +49,4 @@ const Theme: DefaultTheme = {
   tertiary: '#2ECDBA',
 };
 
-export { Theme };
+export default Theme;

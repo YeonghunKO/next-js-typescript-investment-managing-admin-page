@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import { Theme } from '@components/particles/Theme';
+import Theme from '@components/particles/Theme';
 import GlobalStyle from '@components/particles/GlobalStyles';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
