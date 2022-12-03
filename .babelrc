@@ -20,7 +20,8 @@
           "@styles": "./styles",
           "@components": "./components",
           "@shared": "./shared",
-          "@constants": "./constants"
+          "@constants": "./constants",
+          "@hooks": "./hooks"
         }
       }
     ],
