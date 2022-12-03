@@ -8,17 +8,14 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif;
     };
-    button{
-        display: flex;
+    button,input{
+        border:0;
         cursor: pointer;
         outline: none;
         border-radius: 3px;
+        ${({ theme }) => theme.flexCenter}
     };
-    input{
-        display: flex;
-        outline: none;
-        padding-left: 10px;
-    }
+   
     a{
     text-decoration: none;
     color: white;
