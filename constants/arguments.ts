@@ -1,6 +1,6 @@
-import type { INPUT_VARIANT } from '@type/LoginIn/Input';
+import type { INPUT_VARIANT } from '@type/atoms/Input';
 
-const INPUT_VARIANTS: Record<Uppercase<INPUT_VARIANT>, INPUT_VARIANT> = {
+const COLOR_VARIANTS: Record<Uppercase<INPUT_VARIANT>, INPUT_VARIANT> = {
   PRIMARY: 'primary',
   PRIMARY100: 'primary100',
   PRIMARY500: 'primary500',
@@ -9,4 +9,4 @@ const INPUT_VARIANTS: Record<Uppercase<INPUT_VARIANT>, INPUT_VARIANT> = {
   TERTIARY: 'tertiary',
 };
 
-export { INPUT_VARIANTS };
+export { COLOR_VARIANTS };
