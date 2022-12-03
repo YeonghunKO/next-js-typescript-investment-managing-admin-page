@@ -9,4 +9,9 @@ const COLOR_VARIANTS: Record<Uppercase<INPUT_VARIANT>, INPUT_VARIANT> = {
   TERTIARY: 'tertiary',
 };
 
-export { COLOR_VARIANTS };
+const LOGIN_INPUT_TYPE: { TEXT: 'text'; PASSWORD: 'password' } = {
+  TEXT: 'text',
+  PASSWORD: 'password',
+};
+
+export { COLOR_VARIANTS, LOGIN_INPUT_TYPE };
