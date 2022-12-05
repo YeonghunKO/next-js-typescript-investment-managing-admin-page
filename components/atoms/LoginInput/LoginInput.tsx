@@ -1,9 +1,9 @@
 import React from 'react';
-import ComponenetWrapper from './LoginInput.styles';
-import type { Input } from '@type/atoms/Input';
+import * as S from './LoginInput.styles';
+import type { LoginInputType } from '@type/atoms/LoginInput';
 
-const LoginInput = ({ placeholder, type, ...props }: Input) => {
-  return <ComponenetWrapper {...props} type={type} placeholder={placeholder} />;
+const LoginInput = ({ placeholder, type, ...props }: LoginInputType) => {
+  return <S.Input {...props} type={type} placeholder={placeholder} />;
 };
 
 export default LoginInput;

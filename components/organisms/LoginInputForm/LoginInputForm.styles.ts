@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ComponentWrapper = styled.form`
+export const Form = styled.form`
   ${({ theme }) => theme.flexColumn}
   align-items: center;
   justify-content: center;
@@ -8,4 +8,8 @@ const ComponentWrapper = styled.form`
   gap: 1rem;
 `;
 
-export default ComponentWrapper;
+export const ErrorMessage = styled.p`
+  margin-top: -20px;
+  font-weight: 900;
+  color: red;
+`;

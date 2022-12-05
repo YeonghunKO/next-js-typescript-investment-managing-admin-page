@@ -1,12 +1,12 @@
 import type { ButtonType } from '@type/atoms/button';
 import React from 'react';
-import ComponentWrapper from './Button.styles';
+import * as S from './Button.styles';
 
 const Button = ({ children, onClick, ...props }: ButtonType) => {
   return (
-    <ComponentWrapper onClick={onClick} {...props}>
+    <S.Button onClick={onClick} {...props}>
       {children}
-    </ComponentWrapper>
+    </S.Button>
   );
 };
 
