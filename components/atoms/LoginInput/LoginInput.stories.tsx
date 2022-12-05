@@ -1,3 +1,4 @@
+import { COLOR_VARIANTS } from '@constants/arguments';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LoginInput from './LoginInput';
 
@@ -14,4 +15,5 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   placeholder: '이메일 입력해라',
+  variant: COLOR_VARIANTS.PRIMARY100,
 };
