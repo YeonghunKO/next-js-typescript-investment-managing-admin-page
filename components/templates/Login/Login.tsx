@@ -6,24 +6,17 @@ import LoginInputForm from '@components/organisms/LoginInputForm';
 import ErrorModal from '@components/organisms/ErrorModal';
 import { useForm } from 'react-hook-form';
 import { authInputProps } from '@type/templates/login';
+import axios from 'axios';
 
 const Login = () => {
   const [serverAuthError, setServerAuthError] = useState('');
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<authInputProps>();
-
-  //  const onSubmitMutate = useLoginQuery(setServerAuthError)
-  //  const onSubmitLoginForm = handleSubmit()
-
+  const onSubmitHandler = async (e: React.SyntheticEvent) => {};
   return (
     <S.ComponentWrapper>
       <S.Container>
         <Image src={logo} alt="company-logo" />
-        <LoginInputForm register={register} />
+        <LoginInputForm onSubmit={onSubmitHandler} />
         <S.Copyright>ⓒ December and Company</S.Copyright>
       </S.Container>
       {serverAuthError && (
