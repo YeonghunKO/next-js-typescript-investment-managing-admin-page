@@ -1,7 +1,7 @@
 import Button from '@components/atoms/Button';
 import { COLOR_VARIANTS } from '@constants/arguments';
 import useUnmountIfClickedOutside from '@hooks/useUnmountIfClickOutSide';
-import type { ErrorModalType } from '@type/organisms/ErrorModal';
+import type { ErrorModalType } from '@type/organisms/errorModal';
 import React, { useRef } from 'react';
 import * as S from './ErrorModal.styles';
 
@@ -9,8 +9,7 @@ const ErrorModal = ({ errorMessage, setErrorMessage }: ErrorModalType) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleCloseModal = () => {
-    // setServerAuthError("");
-    console.log('close modal');
+    setErrorMessage('');
   };
 
   useUnmountIfClickedOutside(modalRef, handleCloseModal);
