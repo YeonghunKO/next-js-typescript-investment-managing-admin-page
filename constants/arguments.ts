@@ -1,4 +1,4 @@
-import type { INPUT_VARIANT } from '@type/atoms/Input';
+import type { INPUT_VARIANT } from '@type/atoms/LoginInput';
 
 const COLOR_VARIANTS: Record<Uppercase<INPUT_VARIANT>, INPUT_VARIANT> = {
   PRIMARY: 'primary',
