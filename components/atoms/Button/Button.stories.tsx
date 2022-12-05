@@ -12,4 +12,5 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   children: '버튼',
+  width: '10%',
 };
