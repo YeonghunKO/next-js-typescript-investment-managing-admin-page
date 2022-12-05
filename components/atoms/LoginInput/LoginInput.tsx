@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { ChangeEventHandler } from 'react';
 import * as S from './LoginInput.styles';
 import type { LoginInputType } from '@type/atoms/LoginInput';
+import { regex, USER_VALIDATION_ERRORS } from '@constants/validator';
+import { LOGIN_INPUT_CONTENT } from '@constants/arguments';
 
-const LoginInput = ({ placeholder, type, ...props }: LoginInputType) => {
-  return <S.Input {...props} type={type} placeholder={placeholder} />;
+const LoginInput = ({
+  content,
+  placeholder,
+  type,
+  ...props
+}: LoginInputType) => {
+  return <S.Input type={type} placeholder={placeholder} {...props} />;
 };
 
 export default LoginInput;

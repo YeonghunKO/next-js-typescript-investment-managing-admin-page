@@ -14,4 +14,9 @@ const LOGIN_INPUT_TYPE: { TEXT: 'text'; PASSWORD: 'password' } = {
   PASSWORD: 'password',
 };
 
-export { COLOR_VARIANTS, LOGIN_INPUT_TYPE };
+const LOGIN_INPUT_CONTENT: { EMAIL: 'email'; PASSWORD: 'password' } = {
+  EMAIL: 'email',
+  PASSWORD: 'password',
+};
+
+export { COLOR_VARIANTS, LOGIN_INPUT_TYPE, LOGIN_INPUT_CONTENT };
