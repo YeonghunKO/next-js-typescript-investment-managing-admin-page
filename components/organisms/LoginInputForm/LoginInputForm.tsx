@@ -5,7 +5,7 @@ import {
   LOGIN_INPUT_CONTENT,
   LOGIN_INPUT_TYPE,
 } from '@constants/arguments';
-import { useLoginForm } from '@hooks/useLoginForm';
+import { useLoginForm } from '@hooks/login/useLoginForm';
 import { LoginInputFormType } from '@type/organisms/LoginInputForm';
 import React from 'react';
 import * as S from './LoginInputForm.styles';

@@ -3,7 +3,7 @@ import { valueOf } from '@type/common';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { loginUserInfo } from 'store/loginAtoms';
-import { useValidate } from './useValidate';
+import { useValidate } from '../common/useValidate';
 
 const useLoginForm = () => {
   const setRecoilUserInfo = useSetRecoilState(loginUserInfo);
