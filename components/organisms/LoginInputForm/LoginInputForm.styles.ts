@@ -9,7 +9,7 @@ export const Form = styled.form`
 `;
 
 export const ErrorMessage = styled.p`
-  margin-top: -20px;
+  margin-top: 1rem;
   font-weight: 900;
   color: red;
 `;

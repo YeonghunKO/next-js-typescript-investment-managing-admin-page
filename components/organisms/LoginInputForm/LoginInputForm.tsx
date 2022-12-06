@@ -5,11 +5,21 @@ import {
   LOGIN_INPUT_CONTENT,
   LOGIN_INPUT_TYPE,
 } from '@constants/arguments';
+import { useLoginForm } from '@hooks/useLoginForm';
 import { LoginInputFormType } from '@type/organisms/LoginInputForm';
 import React from 'react';
 import * as S from './LoginInputForm.styles';
 
 const LoginInputForm = ({ onSubmit, ...props }: LoginInputFormType) => {
+  const {
+    userInfo,
+    handleInputValue,
+    isEmailValid,
+    emailWarnMessage,
+    isPasswordValid,
+    passwordWarnMessage,
+  } = useLoginForm();
+
   return (
     <>
       <S.Form onSubmit={onSubmit} {...props}>
@@ -18,17 +28,25 @@ const LoginInputForm = ({ onSubmit, ...props }: LoginInputFormType) => {
           variant={COLOR_VARIANTS.PRIMARY100}
           type={LOGIN_INPUT_TYPE.TEXT}
           placeholder="이메일 입력"
+          onChange={handleInputValue(LOGIN_INPUT_CONTENT.EMAIL)}
+          value={userInfo.email}
         />
-        {/* <LoginInput
+        <LoginInput
           content={LOGIN_INPUT_CONTENT.PASSWORD}
-          register={register}
           variant={COLOR_VARIANTS.PRIMARY100}
           type={LOGIN_INPUT_TYPE.PASSWORD}
           placeholder="비밀번호 입력"
-        /> */}
-        <Button width="100%">로그인하기</Button>
+          onChange={handleInputValue(LOGIN_INPUT_CONTENT.PASSWORD)}
+          value={userInfo.password}
+        />
+        <Button disabled={!isEmailValid || !isPasswordValid} width="100%">
+          로그인하기
+        </Button>
       </S.Form>
-      <S.ErrorMessage></S.ErrorMessage>
+      {!isEmailValid && <S.ErrorMessage>{emailWarnMessage}</S.ErrorMessage>}
+      {!isPasswordValid && (
+        <S.ErrorMessage>{passwordWarnMessage}</S.ErrorMessage>
+      )}
     </>
   );
 };
