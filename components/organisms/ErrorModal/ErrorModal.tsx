@@ -1,6 +1,6 @@
 import Button from '@components/atoms/Button';
 import { COLOR_VARIANTS } from '@constants/arguments';
-import useUnmountIfClickedOutside from '@hooks/useUnmountIfClickOutSide';
+import useUnmountIfClickedOutside from '@hooks/common/useUnmountIfClickOutSide';
 import type { ErrorModalType } from '@type/organisms/errorModal';
 import React, { useRef } from 'react';
 import * as S from './ErrorModal.styles';
@@ -18,7 +18,9 @@ const ErrorModal = ({ errorMessage, setErrorMessage }: ErrorModalType) => {
       <S.ModalContainer ref={modalRef}>
         <S.Container>
           <S.ErrorText>{errorMessage}</S.ErrorText>
-          <Button variant={COLOR_VARIANTS.SECONDARY}>확인</Button>
+          <Button onClick={handleCloseModal} variant={COLOR_VARIANTS.SECONDARY}>
+            확인
+          </Button>
         </S.Container>
       </S.ModalContainer>
     </S.ViewPortContainer>
