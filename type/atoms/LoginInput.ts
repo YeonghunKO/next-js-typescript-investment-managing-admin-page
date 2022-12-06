@@ -1,6 +1,3 @@
-import type { authInputProps } from '@type/templates/login';
-import type { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
-
 type INPUT_VARIANT =
   | 'primary'
   | 'primary100'

@@ -1,7 +1,6 @@
-import React, { ChangeEventHandler } from 'react';
+import React from 'react';
 import * as S from './LoginInput.styles';
 import type { LoginInputType } from '@type/atoms/LoginInput';
-import { LOGIN_INPUT_CONTENT } from '@constants/arguments';
 
 const LoginInput = ({
   content,
