@@ -2,7 +2,12 @@ import { backgroundColor, textColour } from 'utils/colorStyles';
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  background-color: ${props => backgroundColor(props)};
+  background-color: ${props => {
+    if (props.disabled) {
+      return props.theme.grey100;
+    }
+    return backgroundColor(props);
+  }};
   color: ${props => textColour(props)};
   width: ${({ width = '100%' }: { width?: string }) => width && width};
   padding: 1rem;
