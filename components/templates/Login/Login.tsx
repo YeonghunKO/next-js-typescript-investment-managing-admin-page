@@ -9,18 +9,21 @@ import { useRecoilValue } from 'recoil';
 import { loginUserInfo } from 'store/loginAtoms';
 import { useRouter } from 'next/router';
 
+import useLoginQuery from '@hooks/login/useLoginQuery';
+
 const Login = () => {
   const [serverAuthError, setServerAuthError] = useState('');
   const userInfo = useRecoilValue(loginUserInfo);
   const router = useRouter();
-
+  const mutate = useLoginQuery(setServerAuthError);
   const onSubmitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const res = await axios.post('/api/login', userInfo);
-
+    try {
+      mutate(userInfo);
+    } catch (error) {
+      console.log(error);
+    }
     // router.push('/accounts');
-
-    // console.log('cookie from login', cookie);
   };
   return (
     <S.ComponentWrapper>
