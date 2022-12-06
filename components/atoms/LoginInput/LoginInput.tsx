@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler } from 'react';
 import * as S from './LoginInput.styles';
 import type { LoginInputType } from '@type/atoms/LoginInput';
-import { regex, USER_VALIDATION_ERRORS } from '@constants/validator';
 import { LOGIN_INPUT_CONTENT } from '@constants/arguments';
 
 const LoginInput = ({
