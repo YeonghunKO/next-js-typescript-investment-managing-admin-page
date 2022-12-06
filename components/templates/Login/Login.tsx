@@ -4,14 +4,24 @@ import logo from 'public/assets/img/December&Company.png';
 import Image from 'next/image';
 import LoginInputForm from '@components/organisms/LoginInputForm';
 import ErrorModal from '@components/organisms/ErrorModal';
-import { useForm } from 'react-hook-form';
-import { authInputProps } from '@type/templates/login';
 import axios from 'axios';
+import { useRecoilValue } from 'recoil';
+import { loginUserInfo } from 'store/loginAtoms';
+import { useRouter } from 'next/router';
 
 const Login = () => {
   const [serverAuthError, setServerAuthError] = useState('');
+  const userInfo = useRecoilValue(loginUserInfo);
+  const router = useRouter();
 
-  const onSubmitHandler = async (e: React.SyntheticEvent) => {};
+  const onSubmitHandler = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const res = await axios.post('/api/login', userInfo);
+
+    // router.push('/accounts');
+
+    // console.log('cookie from login', cookie);
+  };
   return (
     <S.ComponentWrapper>
       <S.Container>
