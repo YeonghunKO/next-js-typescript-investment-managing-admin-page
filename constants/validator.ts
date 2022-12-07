@@ -11,7 +11,7 @@ export const regex = {
 
 export const LOGIN_VALIDATION_ERRORS = {
   USER_NOT_FOUND: '등록되지 않은 사용자입니다.',
-  INVALID_PASSWORD: '* 비밀번호는 3글자 이상이어야 합니다.',
+  INVALID_PASSWORD: '* 비밀번호는 3글자 이하이거나 잘못된 비밀번호 입니다',
   REQUIRED_PASSWORD: '* 비밀번호를 입력해주세요',
   INVALID_EMAIL: '* 이메일 형식을 다시 확인해 주세요.',
   REQUIRED_EMAIL: '* 이메일을 입력해 주세요.',
