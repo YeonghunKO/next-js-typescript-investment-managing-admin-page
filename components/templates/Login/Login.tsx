@@ -32,7 +32,13 @@ const Login = ({ ...props }) => {
         <title>login</title>
       </Head>
       <S.Container>
-        <Image src={logo} alt="company-logo" />
+        <Image
+          src={logo}
+          alt="company-logo"
+          width={100}
+          height={100}
+          placeholder="blur"
+        />
         <LoginInputForm {...props} onSubmit={onSubmitHandler} />
         <S.Copyright>ⓒ December and Company</S.Copyright>
       </S.Container>
