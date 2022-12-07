@@ -1,4 +1,4 @@
-import { authInputProps } from '@type/templates/login';
+import type { authInputProps } from '@type/templates/login';
 import clientAPI from '../common/customAxios';
 
 interface LoginRepository {
