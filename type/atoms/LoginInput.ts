@@ -4,9 +4,10 @@ type INPUT_VARIANT =
   | 'primary500'
   | 'primary900'
   | 'secondary'
-  | 'tertiary';
+  | 'tertiary'
+  | string;
 
-type InputType = 'text' | 'password';
+type InputType = 'text' | 'password' | string;
 
 interface LoginInputType {
   placeholder: string;
