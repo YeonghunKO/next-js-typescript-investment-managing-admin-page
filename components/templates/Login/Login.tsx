@@ -4,14 +4,15 @@ import logo from 'public/assets/img/December&Company.png';
 import Image from 'next/image';
 import LoginInputForm from '@components/organisms/LoginInputForm';
 import ErrorModal from '@components/organisms/ErrorModal';
-import axios from 'axios';
 import { useRecoilValue } from 'recoil';
 import { loginUserInfo } from 'store/loginAtoms';
 import { useRouter } from 'next/router';
 
 import useLoginQuery from '@hooks/login/useLoginQuery';
+import Head from 'next/head';
+import { ROUTER } from '@constants/router';
 
-const Login = () => {
+const Login = ({ ...props }) => {
   const [serverAuthError, setServerAuthError] = useState('');
   const userInfo = useRecoilValue(loginUserInfo);
   const router = useRouter();
@@ -23,13 +24,16 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
-    // router.push('/accounts');
+    router.push(ROUTER.ACCOUNTS);
   };
   return (
     <S.ComponentWrapper>
+      <Head>
+        <title>login</title>
+      </Head>
       <S.Container>
         <Image src={logo} alt="company-logo" />
-        <LoginInputForm onSubmit={onSubmitHandler} />
+        <LoginInputForm {...props} onSubmit={onSubmitHandler} />
         <S.Copyright>ⓒ December and Company</S.Copyright>
       </S.Container>
       {serverAuthError && (
