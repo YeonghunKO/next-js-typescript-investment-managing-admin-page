@@ -3,7 +3,11 @@ import { ThemeProvider } from 'styled-components';
 import Theme from '@components/particles/Theme';
 import GlobalStyle from '@components/particles/GlobalStyles';
 import { RecoilRoot } from 'recoil';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  QueryClient,
+  QueryClientProvider,
+  Hydrate,
+} from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const queryClient = new QueryClient({
@@ -20,8 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={true} />
-          <Component {...pageProps} />
+          <Hydrate state={pageProps.dehydratedState}>
+            <ReactQueryDevtools initialIsOpen={true} />
+            <Component {...pageProps} />
+          </Hydrate>
         </QueryClientProvider>
       </RecoilRoot>
     </ThemeProvider>
