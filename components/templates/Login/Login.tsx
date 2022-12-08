@@ -13,18 +13,19 @@ import Head from 'next/head';
 import { ROUTER } from '@constants/router';
 
 const Login = ({ ...props }) => {
+  const router = useRouter();
   const [serverAuthError, setServerAuthError] = useState('');
   const userInfo = useRecoilValue(loginUserInfo);
-  const router = useRouter();
+
   const mutate = useLoginQuery(setServerAuthError);
   const onSubmitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
       mutate(userInfo);
+      router.push(ROUTER.ACCOUNTS);
     } catch (error) {
       console.log(error);
     }
-    router.push(ROUTER.ACCOUNTS);
   };
   return (
     <S.ComponentWrapper>
