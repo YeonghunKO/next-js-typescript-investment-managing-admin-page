@@ -10,6 +10,8 @@ interface InvestmentAccountRepository {
     q,
     pageNum,
   }: InvestmentAccountProps): Promise<AxiosResponse<any>>;
+
+  getInvestmentAccountInit(): Promise<AxiosResponse<any>>;
 }
 
 class InvestmentAccountRepositoryImp implements InvestmentAccountRepository {
@@ -35,6 +37,13 @@ class InvestmentAccountRepositoryImp implements InvestmentAccountRepository {
         ...(q && { q }),
       },
     });
+  }
+
+  async getInvestmentAccountInit() {
+    const pageString = this.getPageString(1);
+    const result = await clientAPI.get(this.baseQueryString + pageString);
+
+    return result.data;
   }
 }
 
