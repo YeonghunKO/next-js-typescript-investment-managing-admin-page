@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import Cookies from 'universal-cookie';
-// import Cookies from 'univer'
 
 const clientAPI = axios.create({
   baseURL: 'http://localhost:4000',

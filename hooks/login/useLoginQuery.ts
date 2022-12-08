@@ -1,10 +1,9 @@
 import { handleHTTPResponseError } from '@constants/validator';
 import { useMutation } from '@tanstack/react-query';
 import type { authInputProps } from '@type/templates/login';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import LoginRepository from 'lib/api/login';
 import Cookies from 'universal-cookie';
-
 const useLoginQuery = (
   setServerAuthError: React.Dispatch<React.SetStateAction<string>>
 ) => {
@@ -25,8 +24,10 @@ const useLoginQuery = (
           expires: expiresTime,
         });
       },
-      onError: (res: AxiosError) => {
-        setServerAuthError(handleHTTPResponseError(res));
+      onError: (err: AxiosError) => {
+        console.log(err);
+
+        setServerAuthError(handleHTTPResponseError(err));
       },
     }
   );
