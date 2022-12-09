@@ -5,7 +5,6 @@ interface NavLinkType {
   children: ReactNode;
   icon?: { type: keyof IconsKey; size?: string };
   href: string;
-  isActive: boolean;
   [key: string]: any;
 }
 
