@@ -1,7 +1,7 @@
 import React from 'react';
-import { BiUserCircle } from 'react-icons/bi';
+import { HiUserCircle } from 'react-icons/hi';
 const UserCircle = ({ ...props }) => {
-  return <BiUserCircle {...props} />;
+  return <HiUserCircle {...props} />;
 };
 
 export default UserCircle;
