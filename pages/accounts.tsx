@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps, NextPage } from 'next';
 import axios from 'axios';
-import NavLink from '@components/organisms/NavLink';
+import NavLink from '@components/molecules/NavLink';
 import { ROUTER } from '@constants/router';
 import Theme from '@components/particles/Theme';
 

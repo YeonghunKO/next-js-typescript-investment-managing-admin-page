@@ -2,7 +2,7 @@ import Button from '@components/atoms/Button';
 import LoginInput from '@components/atoms/LoginInput';
 
 import { useLoginForm } from '@hooks/login/useLoginForm';
-import { LoginInputFormType } from '@type/organisms/LoginInputForm';
+import { LoginInputFormType } from '@type/molecules/LoginInputForm';
 import React from 'react';
 import * as S from './LoginInputForm.styles';
 

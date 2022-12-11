@@ -1,5 +1,5 @@
 import Icon from '@components/atoms/Icons/Icon';
-import type { NavLinkType } from '@type/organisms/NavLink';
+import type { NavLinkType } from '@type/molecules/NavLink';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 

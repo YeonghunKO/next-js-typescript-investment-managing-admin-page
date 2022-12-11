@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NavLink from './NavLink';
 
 export default {
-  title: 'Organisms/NavLink',
+  title: 'Molecules/NavLink',
   component: NavLink,
 } as ComponentMeta<typeof NavLink>;
 

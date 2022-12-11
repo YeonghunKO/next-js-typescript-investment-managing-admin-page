@@ -3,7 +3,7 @@ import LoginInputForm from './LoginInputForm';
 import { LOGIN_DATA } from 'data/login';
 
 export default {
-  title: 'Organisms/LoginInputForm',
+  title: 'Molecules/LoginInputForm',
   component: LoginInputForm,
 } as ComponentMeta<typeof LoginInputForm>;
 

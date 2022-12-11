@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ErrorModal from './ErrorModal';
 
 export default {
-  title: 'Organisms/ErrorModal',
+  title: 'Molecules/ErrorModal',
   component: ErrorModal,
 } as ComponentMeta<typeof ErrorModal>;
 
