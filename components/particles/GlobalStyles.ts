@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
     .spinner {
         animation-name: ${spinnerAnimation};
-        animation-duration: 5000ms;
+        animation-duration: 2000ms;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
     }
