@@ -6,7 +6,7 @@ import * as S from './Button.styles';
 const Button = ({ children, onClick, icon, ...props }: ButtonType) => {
   return (
     <S.Button onClick={onClick} {...props}>
-      {icon && <Icon icon={icon} size="18" />}
+      {icon && <Icon icon={icon.type} size={icon.size} />}
       <span>{children}</span>
     </S.Button>
   );

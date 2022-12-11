@@ -35,7 +35,7 @@ const LoginInputForm = ({
         ))}
 
         <Button
-          icon={isLogginIn ? 'Spinner' : undefined}
+          icon={{ type: isLogginIn ? 'Spinner' : undefined, size: '18' }}
           disabled={!isEmailValid || !isPasswordValid}
           width="100%"
         >

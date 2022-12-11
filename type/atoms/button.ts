@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface ButtonType {
   children: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  icon: keyof IconsKey | typeof undefined;
+  icon?: { type: keyof IconsKey | typeof undefined; size?: string };
   [key: string]: any;
 }
 
