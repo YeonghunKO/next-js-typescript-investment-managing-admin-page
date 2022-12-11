@@ -1,4 +1,5 @@
 import Button from '@components/atoms/Button';
+import Icon from '@components/atoms/Icons/Icon';
 import LoginInput from '@components/atoms/LoginInput';
 
 import { useLoginForm } from '@hooks/login/useLoginForm';
@@ -6,7 +7,12 @@ import { LoginInputFormType } from '@type/molecules/LoginInputForm';
 import React from 'react';
 import * as S from './LoginInputForm.styles';
 
-const LoginInputForm = ({ onSubmit, data, ...props }: LoginInputFormType) => {
+const LoginInputForm = ({
+  onSubmit,
+  isLogginIn,
+  data,
+  ...props
+}: LoginInputFormType) => {
   const {
     userInfo,
     handleInputValue,
@@ -28,7 +34,11 @@ const LoginInputForm = ({ onSubmit, data, ...props }: LoginInputFormType) => {
           />
         ))}
 
-        <Button disabled={!isEmailValid || !isPasswordValid} width="100%">
+        <Button
+          icon={isLogginIn ? 'Spinner' : undefined}
+          disabled={!isEmailValid || !isPasswordValid}
+          width="100%"
+        >
           로그인하기
         </Button>
       </S.Form>

@@ -16,10 +16,12 @@ const Login = ({ ...props }) => {
   const router = useRouter();
   const [serverAuthError, setServerAuthError] = useState('');
   const userInfo = useRecoilValue(loginUserInfo);
+  const [isLogginIn, setIsLoggingIn] = useState(false);
 
   const mutate = useLoginQuery(setServerAuthError);
   const onSubmitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setIsLoggingIn(true);
     try {
       mutate(userInfo);
       router.push(ROUTER.ACCOUNTS);
@@ -40,7 +42,11 @@ const Login = ({ ...props }) => {
           height={100}
           placeholder="blur"
         />
-        <LoginInputForm {...props} onSubmit={onSubmitHandler} />
+        <LoginInputForm
+          {...props}
+          onSubmit={onSubmitHandler}
+          isLogginIn={isLogginIn}
+        />
         <S.Copyright>ⓒ December and Company</S.Copyright>
       </S.Container>
       {serverAuthError && (
