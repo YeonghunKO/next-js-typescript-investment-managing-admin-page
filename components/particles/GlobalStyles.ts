@@ -1,5 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import reset from 'styled-reset';
+
+const spinnerAnimation = keyframes`
+      from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+`;
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -22,6 +31,13 @@ const GlobalStyle = createGlobalStyle`
     a{
     text-decoration: none;
     color: white;
+    }
+
+    .spinner {
+        animation-name: ${spinnerAnimation};
+        animation-duration: 5000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
     }
 `;
 
