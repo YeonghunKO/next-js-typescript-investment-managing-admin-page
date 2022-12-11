@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof ErrorModal> = args => (
 export const Basic = Template.bind({});
 
 Basic.args = {
-  errorMessage: '에러메세지다 이것들아',
+  errorMessage: '에러메세지 입니다',
 };

@@ -14,6 +14,6 @@ const Template: ComponentStory<typeof LoginInput> = args => (
 export const Basic = Template.bind({});
 
 Basic.args = {
-  placeholder: '이메일 입력해라',
+  placeholder: '이메일을 입력하세요',
   variant: COLOR_VARIANTS.PRIMARY100,
 };
