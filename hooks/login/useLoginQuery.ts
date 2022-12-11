@@ -1,6 +1,6 @@
 import { handleHTTPResponseError } from '@constants/validator';
 import { useMutation } from '@tanstack/react-query';
-import type { authInputProps } from '@type/templates/login';
+import type { authInputProps } from '@type/molecules/LoginInputForm';
 import { AxiosError } from 'axios';
 import LoginRepository from 'lib/api/login';
 import Cookies from 'universal-cookie';

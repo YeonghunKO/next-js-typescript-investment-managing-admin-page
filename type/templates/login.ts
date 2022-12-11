@@ -1,13 +1,7 @@
-interface authInputProps {
-  email: string;
-  password: string;
-}
-
-type InputKey = 'content' | 'variant' | 'type' | 'placeholder' | 'onChangeType';
-type Input = Record<InputKey, string> & { onChangeType: 'email' | 'password' };
-
+import type { inputDataType } from '@type/molecules/LoginInputForm';
 interface LoginDataType {
-  input: Input[];
+  input: inputDataType;
+  [key: string]: any;
 }
 
-export type { authInputProps, LoginDataType };
+export type { LoginDataType };
