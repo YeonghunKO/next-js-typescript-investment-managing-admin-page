@@ -3,6 +3,9 @@ import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps, NextPage } from 'next';
 import axios from 'axios';
+import NavLink from '@components/organisms/NavLink';
+import { ROUTER } from '@constants/router';
+import Theme from '@components/particles/Theme';
 
 const Accounts: NextPage = () => {
   return (
@@ -10,6 +13,14 @@ const Accounts: NextPage = () => {
       <Head>
         <title>accounts</title>
       </Head>
+      <NavLink
+        href={ROUTER.LOGIN}
+        backgroundColor={Theme.grey300}
+        icon={{ type: 'UserCircle' }}
+        // isActive={true}
+      >
+        いい加減かい
+      </NavLink>
     </div>
   );
 };
