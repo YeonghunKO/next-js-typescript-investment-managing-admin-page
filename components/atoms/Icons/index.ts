@@ -4,7 +4,8 @@ import User from './User';
 import Chart from './Chart';
 import UserCircle from './UserCircle';
 import Spinner from './Spinner';
+import LogOut from './LogOut';
 
-const Icons = { Bell, Question, User, Chart, UserCircle, Spinner };
+const Icons = { Bell, Question, User, Chart, UserCircle, Spinner, LogOut };
 
 export default Icons;
