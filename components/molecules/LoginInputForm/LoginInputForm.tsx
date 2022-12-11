@@ -1,5 +1,4 @@
 import Button from '@components/atoms/Button';
-import Icon from '@components/atoms/Icons/Icon';
 import LoginInput from '@components/atoms/LoginInput';
 
 import { useLoginForm } from '@hooks/login/useLoginForm';
@@ -10,7 +9,7 @@ import * as S from './LoginInputForm.styles';
 const LoginInputForm = ({
   onSubmit,
   isLogginIn,
-  data,
+  input,
   ...props
 }: LoginInputFormType) => {
   const {
@@ -25,7 +24,7 @@ const LoginInputForm = ({
   return (
     <>
       <S.Form onSubmit={onSubmit} {...props}>
-        {data?.input?.map((item, idx) => (
+        {input?.map((item, idx) => (
           <LoginInput
             key={idx}
             {...item}

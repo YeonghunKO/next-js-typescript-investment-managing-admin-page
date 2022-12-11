@@ -5,7 +5,7 @@ import { LOGIN_DATA } from 'data/login';
 const Home: NextPage = () => {
   return (
     <>
-      <Login data={LOGIN_DATA} />
+      <Login {...LOGIN_DATA} />
     </>
   );
 };
