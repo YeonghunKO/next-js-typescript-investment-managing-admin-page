@@ -1,14 +1,13 @@
 import { backgroundColor } from 'utils/colorStyles';
 import styled from 'styled-components';
 
-export const Anchor = styled.a<{ backgroundColor: string }>`
+export const Anchor = styled.a<{ backgroundColor: string | undefined }>`
   ${({ theme }) => theme.flexCenter}
   justify-content: start;
   background-color: ${props => {
     return backgroundColor(props);
   }};
   padding: 1rem;
-  padding-left: 2rem;
   transition: 0.1s all ease-in;
   width: 20vw;
   &:hover {

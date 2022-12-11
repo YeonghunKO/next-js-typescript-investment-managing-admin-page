@@ -6,7 +6,7 @@ interface NavLinkType {
   icon?: { type: keyof IconsKey; size?: string };
   href: string;
   isActive?: boolean;
-  backgroundColor: string;
+  backgroundColor?: string;
   [key: string]: any;
 }
 
