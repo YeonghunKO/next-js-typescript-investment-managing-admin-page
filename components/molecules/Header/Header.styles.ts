@@ -4,7 +4,7 @@ export const Container = styled.header`
   ${({ theme }) => theme.flexCenter}
   justify-content: space-between;
   height: 4rem;
-  padding: 1rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
 `;
 
 export const Title = styled.div`

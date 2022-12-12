@@ -29,7 +29,7 @@ const Header = ({ header }: HeaderType) => {
         )}
         <span>{header.title}</span>
       </S.Title>
-      <S.Container>
+      <S.IconsNav>
         {header.icons.map((icon, idx) => (
           <Icon
             key={idx}
@@ -37,7 +37,7 @@ const Header = ({ header }: HeaderType) => {
             icon={icon}
           />
         ))}
-      </S.Container>
+      </S.IconsNav>
     </S.Container>
   );
 };
