@@ -2,6 +2,8 @@ import Icon from '@components/atoms/Icons/Icon';
 import type { NavLinkType } from '@type/molecules/NavLink';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useRecoilValue } from 'recoil';
+import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
 
 import * as S from './NavLink.styles';
 
@@ -14,11 +16,12 @@ const NavLink = ({
   ...props
 }: NavLinkType) => {
   const { pathname } = useRouter();
-
+  const isSiderVisible = useRecoilValue(isSiderVisibleState);
   return (
     <Link href={href} passHref legacyBehavior>
       <S.Anchor
         {...props}
+        isSiderVisible={isSiderVisible}
         backgroundColor={backgroundColor}
         className={pathname === href || isActive ? 'is-active' : ''}
       >

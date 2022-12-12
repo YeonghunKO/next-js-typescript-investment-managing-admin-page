@@ -1,11 +1,14 @@
 import type { SiderType } from '@type/molecules/Sider';
+import { useRecoilValue } from 'recoil';
+import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
 import NavLink from '../NavLink';
 
 import * as S from './Sider.styles';
 
 const Sider = ({ sider }: SiderType) => {
+  const isSiderVisible = useRecoilValue(isSiderVisibleState);
   return (
-    <S.Container isVisible={true}>
+    <S.Container isVisible={isSiderVisible}>
       <S.Header>DnC</S.Header>
       {sider.map(({ text, icon, ...props }, idx) => (
         <NavLink key={idx} icon={{ type: icon }} {...props}>

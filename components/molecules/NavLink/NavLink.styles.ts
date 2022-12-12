@@ -1,15 +1,18 @@
 import { backgroundColor } from 'utils/colorStyles';
 import styled from 'styled-components';
 
-export const Anchor = styled.a<{ backgroundColor: string | undefined }>`
+export const Anchor = styled.a<{
+  backgroundColor: string | undefined;
+  isSiderVisible: boolean;
+}>`
   ${({ theme }) => theme.flexCenter}
   justify-content: start;
   background-color: ${props => {
     return backgroundColor(props);
   }};
-  padding: 1rem;
+  padding: ${({ isSiderVisible }) => (isSiderVisible ? '1rem' : '0')};
   transition: 0.1s all ease-in;
-  width: 20vw;
+  width: auto;
   &:hover {
     opacity: 0.8;
   }
@@ -22,7 +25,7 @@ export const Anchor = styled.a<{ backgroundColor: string | undefined }>`
       };
       return backgroundColor(variantProps);
     }};
-    padding-left: 3rem;
+    padding-left: ${({ isSiderVisible }) => (isSiderVisible ? '2rem' : '0')};
   }
 
   .anchor__wrapper {
