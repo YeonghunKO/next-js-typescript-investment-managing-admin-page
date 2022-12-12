@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof LoginInputForm> = args => (
 export const Basic = Template.bind({});
 
 Basic.args = {
-  data: LOGIN_DATA,
+  input: LOGIN_DATA.input,
 };

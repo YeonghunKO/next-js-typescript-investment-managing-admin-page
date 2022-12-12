@@ -22,5 +22,5 @@ Basic.args = {
       console.log('router push');
     },
   },
-  data: LOGIN_DATA,
+  ...LOGIN_DATA,
 };
