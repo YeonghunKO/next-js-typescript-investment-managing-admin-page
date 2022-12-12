@@ -5,7 +5,19 @@ import Chart from './Chart';
 import UserCircle from './UserCircle';
 import Spinner from './Spinner';
 import LogOut from './LogOut';
+import MenuOpen from './MenuOpen';
+import MenuClose from './MenuClose';
 
-const Icons = { Bell, Question, User, Chart, UserCircle, Spinner, LogOut };
+const Icons = {
+  Bell,
+  Question,
+  User,
+  Chart,
+  UserCircle,
+  Spinner,
+  LogOut,
+  MenuOpen,
+  MenuClose,
+};
 
 export default Icons;
