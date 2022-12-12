@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.aside<{ isVisible: boolean }>`
   ${({ theme }) => theme.flexColumn}
   width:${({ isVisible }) => (isVisible ? '20vw' : '0')};
-  background-color: ${props => backgroundColor(props)};
+  background-color: ${({ theme }) => theme.primary800};
   color: ${props => textColour(props)};
   transition: width 0.3s ease;
 `;

@@ -1,4 +1,3 @@
-import { backgroundColor } from 'utils/colorStyles';
 import styled from 'styled-components';
 
 export const Anchor = styled.a<{
@@ -7,9 +6,7 @@ export const Anchor = styled.a<{
 }>`
   ${({ theme }) => theme.flexCenter}
   justify-content: start;
-  background-color: ${props => {
-    return backgroundColor(props);
-  }};
+  background-color: ${({ theme }) => theme.primary800};
   padding: ${({ isSiderVisible }) => (isSiderVisible ? '1rem' : '0')};
   transition: 0.1s all ease-in;
   width: auto;
@@ -18,13 +15,7 @@ export const Anchor = styled.a<{
   }
 
   &.is-active {
-    background-color: ${props => {
-      const variantProps = {
-        ...props,
-        backgroundColor: props.theme.primary300,
-      };
-      return backgroundColor(variantProps);
-    }};
+    background-color: ${({ theme }) => theme.primary600};
     padding-left: ${({ isSiderVisible }) => (isSiderVisible ? '2rem' : '0')};
   }
 
