@@ -1,6 +1,5 @@
-import Theme from '@components/particles/Theme';
-import { ROUTER } from '@constants/router';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ACCOUNTS_DATA } from 'data/accounts';
 import Sider from './Sider';
 
 export default {
@@ -12,4 +11,6 @@ const Template: ComponentStory<typeof Sider> = args => <Sider {...args} />;
 
 export const Basic = Template.bind({});
 
-Basic.args = {};
+Basic.args = {
+  sider: ACCOUNTS_DATA.sider,
+};
