@@ -9,7 +9,7 @@ const { persistAtom } = recoilPersist({
   storage: sessionStorage,
 });
 
-export const accountQueryParams = atom({
+export const accountQueryParamsState = atom({
   key: 'accountQueryParams',
   default: sessionStorage?.getItem('accountQueryParams') || {
     pageNum: 1,

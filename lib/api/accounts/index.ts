@@ -1,4 +1,4 @@
-import type { InvestmentAccountProps } from '@type/common';
+import type { AccountQueryParams } from '@type/common';
 import type { AxiosResponse } from 'axios';
 import clientAPI from '../common/customAxios';
 
@@ -9,9 +9,7 @@ interface InvestmentAccountRepository {
     status,
     q,
     pageNum,
-  }: InvestmentAccountProps): Promise<AxiosResponse<any>>;
-
-  getInvestmentAccountInit(): Promise<AxiosResponse<any>>;
+  }: AccountQueryParams): Promise<AxiosResponse<any>>;
 }
 
 class InvestmentAccountRepositoryImp implements InvestmentAccountRepository {
@@ -27,7 +25,7 @@ class InvestmentAccountRepositoryImp implements InvestmentAccountRepository {
     status,
     q,
     pageNum,
-  }: InvestmentAccountProps) {
+  }: AccountQueryParams) {
     const pageString = this.getPageString(pageNum);
     return clientAPI.get(this.baseQueryString + pageString, {
       params: {
@@ -37,13 +35,6 @@ class InvestmentAccountRepositoryImp implements InvestmentAccountRepository {
         ...(q && { q }),
       },
     });
-  }
-
-  async getInvestmentAccountInit() {
-    const pageString = this.getPageString(1);
-    const result = await clientAPI.get(this.baseQueryString + pageString);
-
-    return result.data;
   }
 }
 

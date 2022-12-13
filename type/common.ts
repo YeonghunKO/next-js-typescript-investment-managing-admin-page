@@ -1,10 +1,11 @@
 type valueOf<T> = T[keyof T];
-interface InvestmentAccountProps {
+interface AccountQueryParams {
   broker_id?: string;
   is_active?: boolean;
   status?: string;
   q?: string;
   pageNum: number;
+  [key: string]: any;
 }
 
-export type { valueOf, InvestmentAccountProps };
+export type { valueOf, AccountQueryParams };
