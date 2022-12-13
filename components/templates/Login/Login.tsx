@@ -24,8 +24,8 @@ const Login = ({ input }: LoginDataType) => {
     e.preventDefault();
     setIsLoggingIn(true);
     try {
-      mutate(userInfo);
       router.push(ROUTER.ACCOUNTS);
+      mutate(userInfo);
     } catch (error) {
       console.log(error);
     }
