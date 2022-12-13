@@ -15,7 +15,11 @@ const Icon = ({ size = '25', icon, ...props }: Props) => {
     return null;
   }
   return (
-    <SelectedIcon style={{ margin: '0 10px 0 10px' }} size={size} {...props} />
+    <SelectedIcon
+      style={{ margin: '0 0.3rem 0 0.3rem' }}
+      size={size}
+      {...props}
+    />
   );
 };
 

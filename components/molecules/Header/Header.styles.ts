@@ -15,4 +15,5 @@ export const Title = styled.div`
 export const IconsNav = styled.nav`
   ${({ theme }) => theme.flexCenter};
   justify-content: space-around;
+  gap: 0.3rem;
 `;
