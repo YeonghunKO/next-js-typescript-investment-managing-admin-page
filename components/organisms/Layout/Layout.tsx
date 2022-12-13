@@ -1,14 +1,14 @@
 import Header from '@components/molecules/Header';
 import Sider from '@components/molecules/Sider';
-import { LayoutType } from '@type/organisms/Layout';
+import type { ReactNode } from 'react';
 import * as S from './Layout.styles';
 
-const Layout = ({ children, header, sider }: LayoutType) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <S.Container>
-      <Sider sider={sider} />
+      <Sider />
       <S.Content>
-        <Header header={header} />
+        <Header />
         {children}
       </S.Content>
     </S.Container>

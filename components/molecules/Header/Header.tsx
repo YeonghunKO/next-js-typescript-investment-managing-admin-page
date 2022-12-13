@@ -1,16 +1,19 @@
 import Button from '@components/atoms/Button';
 import Icon from '@components/atoms/Icons/Icon';
 import { ROUTER } from '@constants/router';
-import type { HeaderType } from '@type/molecules/Header';
+import type { HeaderDataType, HeaderType } from '@type/molecules/Header';
 import { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { accountDataState } from 'store/accountDataAtoms';
 import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
 import Cookies from 'universal-cookie';
 import * as S from './Header.styles';
 
-const Header = ({ header }: HeaderType) => {
+const Header = () => {
   const [isSiderVisible, setIsSiderVisible] =
     useRecoilState(isSiderVisibleState);
+  const { header: data }: { header: HeaderDataType } =
+    useRecoilValue(accountDataState);
   const cookie = new Cookies();
   const router = useRouter();
 
@@ -38,10 +41,10 @@ const Header = ({ header }: HeaderType) => {
             onClick={toggleSider}
           />
         )}
-        <span>{header.title}</span>
+        <span>{data.title}</span>
       </S.Title>
       <S.IconsNav>
-        {header.icons.map((icon, idx) => (
+        {data.icons.map((icon, idx) => (
           <Icon
             key={idx}
             style={{ cursor: 'pointer', margin: '0 0.4rem 0 0.4rem' }}
