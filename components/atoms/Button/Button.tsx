@@ -1,4 +1,4 @@
-import type { ButtonType } from '@type/atoms/button';
+import type { ButtonType } from '@type/atoms/Button';
 import React from 'react';
 import Icon from '../Icons/Icon';
 import * as S from './Button.styles';

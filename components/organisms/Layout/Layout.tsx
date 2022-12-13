@@ -1,6 +1,6 @@
 import Header from '@components/molecules/Header';
 import Sider from '@components/molecules/Sider';
-import { LayoutType } from '@type/templates/layout';
+import { LayoutType } from '@type/organisms/Layout';
 import * as S from './Layout.styles';
 
 const Layout = ({ children, header, sider }: LayoutType) => {

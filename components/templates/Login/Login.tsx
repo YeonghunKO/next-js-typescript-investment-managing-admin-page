@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import useLoginQuery from '@hooks/login/useLoginQuery';
 import Head from 'next/head';
 import { ROUTER } from '@constants/router';
-import { LoginDataType } from '@type/templates/login';
+import { LoginDataType } from '@type/templates/Login';
 
 const Login = ({ input }: LoginDataType) => {
   const router = useRouter();
