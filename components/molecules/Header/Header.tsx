@@ -1,15 +1,26 @@
+import Button from '@components/atoms/Button';
 import Icon from '@components/atoms/Icons/Icon';
+import { ROUTER } from '@constants/router';
 import type { HeaderType } from '@type/molecules/Header';
+import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
+import Cookies from 'universal-cookie';
 import * as S from './Header.styles';
 
 const Header = ({ header }: HeaderType) => {
   const [isSiderVisible, setIsSiderVisible] =
     useRecoilState(isSiderVisibleState);
+  const cookie = new Cookies();
+  const router = useRouter();
 
   const toggleSider = () => {
     setIsSiderVisible(!isSiderVisible);
+  };
+
+  const handleLogOut = () => {
+    router.push(ROUTER.LOGIN);
+    cookie.remove('access_token');
   };
   return (
     <S.Container>
@@ -37,6 +48,13 @@ const Header = ({ header }: HeaderType) => {
             icon={icon}
           />
         ))}
+        <Button
+          icon={{ type: 'LogOut' }}
+          style={{ padding: '0.5rem', width: 'auto' }}
+          onClick={handleLogOut}
+        >
+          로그아웃
+        </Button>
       </S.IconsNav>
     </S.Container>
   );

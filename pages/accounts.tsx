@@ -3,25 +3,19 @@ import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps, NextPage } from 'next';
 import axios from 'axios';
-import NavLink from '@components/molecules/NavLink';
-import { ROUTER } from '@constants/router';
-import Theme from '@components/particles/Theme';
+import { ACCOUNTS_DATA } from 'data/accounts';
+import Layout from '@components/organisms/Layout';
 
 const Accounts: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>accounts</title>
       </Head>
-      <NavLink
-        href={ROUTER.LOGIN}
-        backgroundColor={Theme.grey300}
-        icon={{ type: 'UserCircle' }}
-        // isActive={true}
-      >
-        いい加減かい
-      </NavLink>
-    </div>
+      <Layout {...ACCOUNTS_DATA}>
+        <div>accounts list</div>
+      </Layout>
+    </>
   );
 };
 
