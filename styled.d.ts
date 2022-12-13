@@ -9,6 +9,7 @@ declare module 'styled-components' {
     white: '#ffffff';
     offWhite: '#F0F0F0';
     grey: '#a6a6a6';
+    grey50: '#ededed';
     grey100: '#d9d9d9';
     grey200: '#bfbfbf';
     grey300: '#a6a6a6';
