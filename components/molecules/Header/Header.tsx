@@ -50,7 +50,7 @@ const Header = ({ header }: HeaderType) => {
         ))}
         <Button
           icon={{ type: 'LogOut' }}
-          style={{ padding: '0.5rem', width: 'auto' }}
+          style={{ padding: '0.5rem', width: 'auto', marginLeft: '0.5rem' }}
           onClick={handleLogOut}
         >
           로그아웃
