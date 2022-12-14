@@ -2,16 +2,11 @@ import Button from '@components/atoms/Button';
 import DropDown from '@components/atoms/DropDown';
 import SearchInput from '@components/atoms/SearchInput';
 import { useGetAccountQuery } from '@hooks/accounts/useGetAccountQuery';
-import { useRecoilValue } from 'recoil';
-import { accountDataState } from 'store/accountDataAtoms';
+import type { AccountListNavType } from '@type/molecules/AccountListNav';
 import * as S from './AccountListNav.styles';
 
-const AccountListNav = () => {
+const AccountListNav = ({ dropDownData }: AccountListNavType) => {
   const { accountQueryParams, setAccountQueryParams } = useGetAccountQuery();
-
-  const {
-    accountListBoard: { dropDown: dropDownData },
-  } = useRecoilValue(accountDataState);
 
   const updateQueryParamsOnInputChange = (searchInput: any) => {
     setAccountQueryParams({ ...accountQueryParams, q: searchInput });

@@ -1,6 +1,7 @@
 import { convertFormatDataToLabelValueArray } from 'utils/processFormatData';
 import { ROUTER } from '@constants/router';
 import {
+  ACCOUNT_TABLE_HEADER_DATA,
   BROKERS_FORMAT,
   IS_ACTIVE_FORMAT,
   STATUS_FORMAT,
@@ -39,5 +40,6 @@ export const ACCOUNTS_DATA = {
         data: convertFormatDataToLabelValueArray(STATUS_FORMAT),
       },
     ],
+    accountTableHeader: ACCOUNT_TABLE_HEADER_DATA,
   },
 };
