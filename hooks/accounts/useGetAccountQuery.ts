@@ -1,19 +1,22 @@
 import { accountQueryParamsState } from 'store/accountQueryParamsAtoms';
 import { useQuery } from '@tanstack/react-query';
-import type { AccountQueryParams } from '@type/common';
+import type { AccountQueryParams, AccountType } from '@type/common';
 import { AxiosError, AxiosResponse } from 'axios';
 import InvestmentAccount from 'lib/api/accounts';
 import { useRecoilState } from 'recoil';
 
 export const useGetAccountQuery = () => {
-  const { data: initData } = useQuery(['accountsList'], () =>
+  const { data: initData } = useQuery<
+    AxiosResponse<AccountType[]>,
+    AxiosError<any, any>
+  >(['accountsList'], () =>
     InvestmentAccount.getInvestmentAccount(accountQueryParams)
   );
 
   const [accountQueryParams, setAccountQueryParams] =
     useRecoilState<AccountQueryParams>(accountQueryParamsState);
 
-  const info = useQuery<AxiosResponse, AxiosError<any, any>>(
+  const info = useQuery<AxiosResponse<AccountType[]>, AxiosError<any, any>>(
     ['accountsList', accountQueryParams],
     () => {
       return InvestmentAccount.getInvestmentAccount(accountQueryParams);
