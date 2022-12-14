@@ -5,13 +5,14 @@ import { AxiosError } from 'axios';
 import LoginRepository from 'lib/api/login';
 import Cookies from 'universal-cookie';
 const useLoginQuery = (
-  setServerAuthError: React.Dispatch<React.SetStateAction<string>>
+  setServerAuthError: React.Dispatch<React.SetStateAction<string>>,
+  setIsLoggingIn: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   const cookies = new Cookies();
   const expiresTime = new Date();
   expiresTime.setHours(expiresTime.getHours() + 1);
 
-  const { mutate } = useMutation(
+  return useMutation(
     (authInputs: authInputProps) => LoginRepository.handleLogin(authInputs),
     {
       onSuccess: ({
@@ -28,11 +29,10 @@ const useLoginQuery = (
         console.log(err);
 
         setServerAuthError(handleHTTPResponseError(err));
+        setIsLoggingIn(false);
       },
     }
   );
-
-  return mutate;
 };
 
 export default useLoginQuery;

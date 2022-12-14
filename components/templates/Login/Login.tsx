@@ -19,16 +19,12 @@ const Login = ({ input }: LoginDataType) => {
   const userInfo = useRecoilValue(loginUserInfo);
   const [isLogginIn, setIsLoggingIn] = useState(false);
 
-  const mutate = useLoginQuery(setServerAuthError);
+  const { mutate } = useLoginQuery(setServerAuthError, setIsLoggingIn);
   const onSubmitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    router.push(ROUTER.ACCOUNTS);
+    mutate(userInfo);
     setIsLoggingIn(true);
-    try {
-      router.push(ROUTER.ACCOUNTS);
-      mutate(userInfo);
-    } catch (error) {
-      console.log(error);
-    }
   };
   return (
     <S.ComponentWrapper>
