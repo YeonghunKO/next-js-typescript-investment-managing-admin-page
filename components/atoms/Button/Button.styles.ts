@@ -9,11 +9,7 @@ export const Button = styled.button`
     return backgroundColor(props);
   }};
   color: ${props => textColour(props)};
-  width: ${({ width = '100%' }: { width?: string }) => {
-    console.log(width);
-
-    return width && width;
-  }};
+  width: ${({ width = '100%' }: { width?: string }) => width && width};
   padding: 1rem;
   transition: 0.1s all ease-in;
 
