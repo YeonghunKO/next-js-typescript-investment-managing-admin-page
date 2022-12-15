@@ -2,6 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
   ${({ theme }) => theme.flexCenter};
-  justify-content: flex-start;
+  width: 100%;
   gap: 1rem;
 `;
