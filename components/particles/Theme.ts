@@ -46,8 +46,8 @@ const Theme: DefaultTheme = {
   primary700: '#341B97',
   primary800: '#25136C',
   primary900: '#170C41',
-  secondary: '#3788A1',
-  tertiary: '#2ECDBA',
+  secondary: '#ff2828',
+  tertiary: '#7eff8f',
 };
 
 export default Theme;
