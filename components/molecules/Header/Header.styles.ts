@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.header`
   ${({ theme }) => theme.flexCenter}
   justify-content: space-between;
-  height: 4rem;
+  height: 10%;
   padding: 1rem 1.5rem 1rem 1.5rem;
 `;
 
