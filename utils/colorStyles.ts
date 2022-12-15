@@ -39,6 +39,7 @@ const backgroundColor = (props: ColorProps) => {
 
 const textColour = (props: ColorProps) => {
   // Fallback value if we can't get access to props
+  if (props.textColor) return props.textColor;
   if (!props || !props.theme || !props.theme.primary) return 'white';
 
   // If no variant is specified, return the white colour
@@ -57,7 +58,7 @@ const textColour = (props: ColorProps) => {
       colour = props.theme.black;
       break;
     default:
-      colour = props.theme.white;
+      colour = props.theme.grey200;
       break;
   }
 
