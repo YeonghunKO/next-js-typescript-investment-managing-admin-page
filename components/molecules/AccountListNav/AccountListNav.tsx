@@ -13,7 +13,11 @@ const AccountListNav = ({ dropDownData }: AccountListNavType) => {
   };
 
   const updateQueryParamsOnDropDownChange = (name: string, value: string) => {
-    setAccountQueryParams({ ...accountQueryParams, [name]: value });
+    setAccountQueryParams({
+      ...accountQueryParams,
+      pageNum: 1,
+      [name]: value,
+    });
   };
 
   const initAccountQueryParams = () => {
