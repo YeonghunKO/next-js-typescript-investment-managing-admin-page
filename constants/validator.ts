@@ -15,11 +15,17 @@ export const LOGIN_VALIDATION_ERRORS = {
   REQUIRED_PASSWORD: '* 비밀번호를 입력해주세요',
   INVALID_EMAIL: '* 이메일 형식을 다시 확인해 주세요.',
   REQUIRED_EMAIL: '* 이메일을 입력해 주세요.',
-  UNEXPECTED_ERROR: '잠시 후 다시 시도해 주세요.',
+  UNEXPECTED_ERROR: '잠시 후 다시 로그인 주세요.',
+};
+
+export const ACCOUNTS_VALIDATION_ERRORS = {
+  JWT_EXPIRED: 'JWT 토큰이 만료되었습니다 재로그인후 다시 들어와 주세요',
 };
 
 export const handleHTTPResponseError = (res: AxiosError) => {
   console.log(res);
+  if (res.response?.data === 'Missing authorization header')
+    return ACCOUNTS_VALIDATION_ERRORS.JWT_EXPIRED;
   if (res.response?.data === 'Cannot find user')
     return LOGIN_VALIDATION_ERRORS.USER_NOT_FOUND;
   if (res.response?.data === 'Incorrect password')

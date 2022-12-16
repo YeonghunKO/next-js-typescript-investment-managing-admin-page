@@ -9,25 +9,23 @@ import * as S from './AccountListBoard.styles';
 import { Paper, Table, TableContainer } from '@mui/material';
 import AccountTableBody from '@components/atoms/AccountTable/AccountTableBody';
 import AccountTableHead from '@components/atoms/AccountTable/AccountTableHead';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Pagination from '@components/atoms/Pagination';
+import ErrorModal from '@components/molecules/ErrorModal';
 
 const AccountListBoard = () => {
+  const [errorMessage, setErrorMessage] = useState('');
   const {
     isLoading,
     isError,
-    error,
     data,
     isFetching,
     accountQueryParams,
     setAccountQueryParams,
-  } = useGetAccountQuery();
-
+  } = useGetAccountQuery(setErrorMessage);
   const {
     accountListBoard: { accountTableHeader, dropDown },
   } = useRecoilValue(accountDataState);
-  // console.log('isLoading', isFetching);
-  // console.log('isFetching', isFetching);
 
   const totalPagesNumber =
     data?.headers &&
@@ -65,7 +63,16 @@ const AccountListBoard = () => {
   }
 
   if (isError) {
-    return <div>{error.response?.data}</div>;
+    return (
+      <>
+        {errorMessage && (
+          <ErrorModal
+            errorMessage={errorMessage}
+            setErrorMessage={setErrorMessage}
+          />
+        )}
+      </>
+    );
   }
 
   const onPage = (pageNum: number) => {
@@ -88,7 +95,7 @@ const AccountListBoard = () => {
             </TableContainer>
           )}
         </S.TableContainer>
-        {data?.data?.length > 1 ? (
+        {accountTableBodyData?.length ? (
           <Pagination
             onPage={onPage}
             currentPage={accountQueryParams.pageNum}
