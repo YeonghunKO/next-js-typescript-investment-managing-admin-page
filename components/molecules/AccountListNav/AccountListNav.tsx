@@ -9,7 +9,11 @@ const AccountListNav = ({ dropDownData }: AccountListNavType) => {
   const { accountQueryParams, setAccountQueryParams } = useGetAccountQuery();
 
   const updateQueryParamsOnInputChange = (searchInput: any) => {
-    setAccountQueryParams({ ...accountQueryParams, q: searchInput });
+    setAccountQueryParams({
+      ...accountQueryParams,
+      pageNum: 1,
+      q: searchInput,
+    });
   };
 
   const updateQueryParamsOnDropDownChange = (name: string, value: string) => {
