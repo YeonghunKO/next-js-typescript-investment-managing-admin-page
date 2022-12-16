@@ -65,7 +65,10 @@ const Pagination = ({ totalPage, currentPage, onPage }: PaginationType) => {
 
     const pushPageComponentWithDots = (direction: 'forward' | 'backward') => {
       pagesComponents.push(
-        <S.PaginationPages onClick={() => handlePageClick(direction)}>
+        <S.PaginationPages
+          key={direction}
+          onClick={() => handlePageClick(direction)}
+        >
           ...
         </S.PaginationPages>
       );
@@ -73,7 +76,7 @@ const Pagination = ({ totalPage, currentPage, onPage }: PaginationType) => {
 
     const pushSingleNumberPageComponent = (number: number) => {
       pagesComponents.push(
-        <S.PaginationPages onClick={() => handlePageClick(number)}>
+        <S.PaginationPages key={number} onClick={() => handlePageClick(number)}>
           {number}
         </S.PaginationPages>
       );
