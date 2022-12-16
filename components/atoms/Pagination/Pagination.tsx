@@ -6,8 +6,6 @@ import * as S from './Pagination.styles';
 
 const Pagination = ({ totalPage, currentPage, onPage }: PaginationType) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(currentPage);
-  // console.log('totalPage in pagination', totalPage);
-  // console.log('currentPageNumber in pagination', currentPageNumber);
 
   const handlePageClick = (pageContent: 'backward' | 'forward' | number) => {
     let parsedPageNumber;
@@ -41,8 +39,6 @@ const Pagination = ({ totalPage, currentPage, onPage }: PaginationType) => {
     currentPageNumber: number;
   }) => {
     const pagesComponents: JSX.Element[] = [];
-    // console.log('totalPageNumber in createPages', totalPageNumber);
-    // console.log('currentPageNumber in createPages', currentPageNumber);
     const pushPageComponentsByRange = ({
       from,
       to,
