@@ -1,39 +1,36 @@
 import Theme from '@components/particles/Theme';
+import type { PaginationType } from '@type/atoms/Pagination';
 import React, { useEffect, useState } from 'react';
 import Button from '../Button';
 import * as S from './Pagination.styles';
 
-const Pagination = ({
-  totalPage,
-  currentPage,
-  onPage,
-}: {
-  totalPage: any;
-  currentPage: any;
-  onPage: any;
-}) => {
-  const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  const [totalPageNumber, setCurrentTotalPageNumber] = useState(totalPage);
+const Pagination = ({ totalPage, currentPage, onPage }: PaginationType) => {
+  const [currentPageNumber, setCurrentPageNumber] = useState(currentPage);
+  // console.log('totalPage in pagination', totalPage);
+  // console.log('currentPageNumber in pagination', currentPageNumber);
+
   const handlePageClick = (pageContent: 'backward' | 'forward' | number) => {
+    let parsedPageNumber;
+
     switch (pageContent) {
       case 'backward':
-        setCurrentPageNumber((prevNumber: number) => prevNumber - 2);
+        parsedPageNumber = currentPageNumber - 2;
         break;
       case 'forward':
-        setCurrentPageNumber((prevNumber: number) => prevNumber + 2);
+        parsedPageNumber = currentPageNumber + 2;
         break;
 
       default:
-        setCurrentPageNumber(pageContent);
+        parsedPageNumber = pageContent;
         break;
     }
 
-    onPage(currentPageNumber);
+    setCurrentPageNumber(parsedPageNumber);
+    onPage(parsedPageNumber);
   };
 
   useEffect(() => {
-    setCurrentPageNumber(currentPage);
-    setCurrentTotalPageNumber(totalPage);
+    setCurrentPageNumber(currentPage ? currentPage : 1);
   }, [totalPage, currentPage]);
 
   const createPages = ({
@@ -44,7 +41,8 @@ const Pagination = ({
     currentPageNumber: number;
   }) => {
     const pagesComponents: JSX.Element[] = [];
-
+    // console.log('totalPageNumber in createPages', totalPageNumber);
+    // console.log('currentPageNumber in createPages', currentPageNumber);
     const pushPageComponentsByRange = ({
       from,
       to,
@@ -117,29 +115,37 @@ const Pagination = ({
 
   return (
     <S.Container>
-      <Button
-        padding="0.5rem"
-        width="auto"
-        backgroundColor={Theme.secondary}
-        textColor={Theme.grey50}
-        disabled={currentPageNumber === 1}
-        onClick={() => handlePageClick(currentPageNumber - 1)}
-      >
-        이전페이지
-      </Button>
-      <S.PaginationContainer>
-        {createPages({ totalPageNumber, currentPageNumber })}
-      </S.PaginationContainer>
-      <Button
-        padding="0.5rem"
-        width="auto"
-        backgroundColor={Theme.secondary}
-        textColor={Theme.grey50}
-        disabled={currentPageNumber === totalPageNumber}
-        onClick={() => handlePageClick(currentPageNumber + 1)}
-      >
-        다음페이지
-      </Button>
+      {totalPage && totalPage > 1 ? (
+        <>
+          <Button
+            padding="0.5rem"
+            width="auto"
+            backgroundColor={Theme.secondary}
+            textColor={Theme.grey50}
+            disabled={currentPageNumber === 1}
+            onClick={() => handlePageClick(currentPageNumber - 1)}
+          >
+            이전페이지
+          </Button>
+          <S.PaginationContainer>
+            {totalPage &&
+              createPages({
+                totalPageNumber: totalPage as number,
+                currentPageNumber,
+              })}
+          </S.PaginationContainer>
+          <Button
+            padding="0.5rem"
+            width="auto"
+            backgroundColor={Theme.secondary}
+            textColor={Theme.grey50}
+            disabled={currentPageNumber === totalPage}
+            onClick={() => handlePageClick(currentPageNumber + 1)}
+          >
+            다음페이지
+          </Button>
+        </>
+      ) : null}
     </S.Container>
   );
 };

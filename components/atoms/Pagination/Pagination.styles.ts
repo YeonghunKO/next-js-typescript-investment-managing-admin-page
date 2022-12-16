@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0.5rem 0;
   justify-content: space-between;
   height: 10%;
-  width: 35%;
+  width: 37%;
 `;
 
 export const PaginationContainer = styled.ul`

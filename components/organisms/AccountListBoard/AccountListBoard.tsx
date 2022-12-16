@@ -18,12 +18,16 @@ const AccountListBoard = () => {
     isError,
     error,
     data,
-    accountQueryParams: { pageNum },
+    isFetching,
+    accountQueryParams,
+    setAccountQueryParams,
   } = useGetAccountQuery();
 
   const {
     accountListBoard: { accountTableHeader, dropDown },
   } = useRecoilValue(accountDataState);
+  // console.log('isLoading', isFetching);
+  // console.log('isFetching', isFetching);
 
   const totalPagesNumber =
     data?.headers &&
@@ -64,8 +68,8 @@ const AccountListBoard = () => {
     return <div>{error.response?.data}</div>;
   }
 
-  const onPage = (pageContent: number) => {
-    console.log(pageContent);
+  const onPage = (pageNum: number) => {
+    setAccountQueryParams({ ...accountQueryParams, pageNum });
   };
 
   return (
@@ -77,7 +81,7 @@ const AccountListBoard = () => {
             <S.EmptyTable>필터링된 계좌가 없습니다</S.EmptyTable>
           ) : (
             <TableContainer sx={{ height: '100%' }} component={Paper}>
-              <Table aria-label="simple table">
+              <Table aria-label="simple table" stickyHeader>
                 <AccountTableHead accountTableHeaderData={accountTableHeader} />
                 <AccountTableBody accountTableBodyData={accountTableBodyData} />
               </Table>
@@ -86,7 +90,7 @@ const AccountListBoard = () => {
         </S.TableContainer>
         <Pagination
           onPage={onPage}
-          currentPage={pageNum}
+          currentPage={accountQueryParams.pageNum}
           totalPage={totalPagesNumber}
         />
       </S.Content>
