@@ -1,20 +1,18 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import React from 'react';
 import Head from 'next/head';
-import { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import axios from 'axios';
-import { ACCOUNTS_DATA } from 'data/accounts';
-import Layout from '@components/organisms/Layout';
+
+import Account from '@components/templates/Account';
 
 const Accounts: NextPage = () => {
   return (
     <>
       <Head>
-        <title>accounts</title>
+        <title>계좌목록</title>
       </Head>
-      <Layout {...ACCOUNTS_DATA}>
-        <div>accounts list</div>
-      </Layout>
+      <Account />
     </>
   );
 };
