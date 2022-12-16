@@ -12,11 +12,12 @@ type AccountTableBodyDataType = {
 
 type AccountTableHeaderType = {
   accountTableHeaderData: string[];
-  checkbox?: boolean;
+  isCheckbox?:boolean
 };
 
 type AccountTableBodyType = {
   accountTableBodyData?: AccountTableBodyDataType[];
+  isCheckbox?: boolean;
 };
 
 export type {

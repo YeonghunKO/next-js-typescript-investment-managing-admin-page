@@ -3,6 +3,7 @@ import {
   BROKERS_FORMAT,
   STATUS_FORMAT,
 } from '@constants/formatDataString';
+import CheckBox from '@mui/material/Checkbox';
 import { TableBody, TableCell, TableRow } from '@mui/material';
 import type {
   AccountTableBodyType,
@@ -14,7 +15,15 @@ import {
   formattingAccountNumber,
 } from 'utils/processFormatData';
 
-const AccountTableBody = ({ accountTableBodyData }: AccountTableBodyType) => {
+const tabelStyle = {
+  align: 'center',
+  sx: { fontSize: '0.8rem', padding: '0.5rem' },
+} as const;
+
+const AccountTableBody = ({
+  accountTableBodyData,
+  isCheckbox,
+}: AccountTableBodyType) => {
   return (
     <TableBody sx={{ fontSize: '.5rem !important' }}>
       {accountTableBodyData?.map(
@@ -33,7 +42,17 @@ const AccountTableBody = ({ accountTableBodyData }: AccountTableBodyType) => {
           idx: number
         ) => (
           <TableRow key={idx}>
-            {userName && (
+            {isCheckbox ? (
+              <TableCell
+                key="checkboxHead"
+                align="center"
+                size="small"
+                sx={{ padding: '0.8rem' }}
+              >
+                <CheckBox size="small" sx={{ padding: 0 }} />
+              </TableCell>
+            ) : null}
+            {userName ? (
               <TableCell
                 component="th"
                 align="center"
@@ -47,36 +66,43 @@ const AccountTableBody = ({ accountTableBodyData }: AccountTableBodyType) => {
               >
                 {userName}
               </TableCell>
+            ) : (
+              <TableCell
+                component="th"
+                align="center"
+                scope="row"
+                sx={{
+                  color: '#357ae1',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '0.75rem',
+                }}
+              >
+                무명인
+              </TableCell>
             )}
-            <TableCell align="center" sx={{ fontSize: '0.7rem' }}>
-              {BROKERS_FORMAT[broker_id]}
-            </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.7rem' }}>
+            <TableCell {...tabelStyle}>{BROKERS_FORMAT[broker_id]}</TableCell>
+            <TableCell {...tabelStyle}>
               {formattingAccountNumber(
                 number,
                 ACCOUNT_NUMBER_FORMAT[broker_id]
               )}
             </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.75rem' }}>
-              {STATUS_FORMAT[status]}
-            </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.7rem' }}>
-              {accountName}
-            </TableCell>
+            <TableCell {...tabelStyle}>{STATUS_FORMAT[status]}</TableCell>
+            <TableCell {...tabelStyle}>{accountName}</TableCell>
             <TableCell
-              align="center"
-              sx={{ fontSize: '0.7rem' }}
+              {...tabelStyle}
               style={{ color: assetsColorDecider(assets, payments) }}
             >
               {parseInt(assets).toLocaleString()}
             </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.7rem' }}>
+            <TableCell {...tabelStyle}>
               {parseInt(payments).toLocaleString()}
             </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.75rem' }}>
+            <TableCell {...tabelStyle}>
               {is_active ? '활성화' : '비활성화'}
             </TableCell>
-            <TableCell align="center" sx={{ fontSize: '0.7rem' }}>
+            <TableCell {...tabelStyle}>
               {created_at.split('').slice(0, 10)}
             </TableCell>
           </TableRow>

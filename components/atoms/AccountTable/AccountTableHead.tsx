@@ -4,18 +4,27 @@ import React from 'react';
 
 const AccountTableHead = ({
   accountTableHeaderData,
-  checkbox,
+  isCheckbox,
 }: AccountTableHeaderType) => {
   return (
     <TableHead>
       <TableRow>
-        {checkbox ? (
-          <TableCell key="checkboxHead" align="center" size="small">
-            <Checkbox disabled />
+        {isCheckbox ? (
+          <TableCell
+            key="checkboxHead"
+            align="center"
+            size="small"
+            sx={{ fontSize: '.9rem', padding: '0.5rem', fontWeight: 'bold' }}
+          >
+            삭제
           </TableCell>
         ) : null}
         {accountTableHeaderData.map((headCell, idx) => (
-          <TableCell sx={{ fontSize: '.8rem' }} key={idx} align="center">
+          <TableCell
+            sx={{ fontSize: '.9rem', padding: '0.5rem', fontWeight: 'bold' }}
+            key={idx}
+            align="center"
+          >
             {headCell}
           </TableCell>
         ))}
