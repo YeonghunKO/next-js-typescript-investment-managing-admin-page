@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ACCOUNTS_DATA } from 'data/accounts';
 import DropDown from './DropDown';
 
 export default {
@@ -12,4 +13,9 @@ const Template: ComponentStory<typeof DropDown> = args => (
 
 export const Basic = Template.bind({});
 
-Basic.args = {};
+Basic.args = {
+  data: ACCOUNTS_DATA.accountListBoard.dropDown[0].data,
+  label: ACCOUNTS_DATA.accountListBoard.dropDown[0].label,
+  updateQueryParamsOnDropDownChange: () => {},
+  queryParams: { q: '', pageNum: 1 },
+};

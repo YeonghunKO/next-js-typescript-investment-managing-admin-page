@@ -12,4 +12,10 @@ const Template: ComponentStory<typeof Pagination> = args => (
 
 export const Basic = Template.bind({});
 
-Basic.args = {};
+Basic.args = {
+  totalPage: 10,
+  currentPage: 1,
+  onPage: (pageNum: number) => {
+    console.log(pageNum);
+  },
+};
