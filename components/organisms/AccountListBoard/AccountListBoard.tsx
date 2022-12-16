@@ -88,7 +88,7 @@ const AccountListBoard = () => {
             </TableContainer>
           )}
         </S.TableContainer>
-        {data.data.length > 1 ? (
+        {data?.data?.length > 1 ? (
           <Pagination
             onPage={onPage}
             currentPage={accountQueryParams.pageNum}
