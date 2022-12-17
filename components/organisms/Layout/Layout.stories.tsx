@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof Layout> = args => <Layout {...args} />;
 export const Basic = Template.bind({});
 
 Basic.args = {
-  ...ACCOUNTS_DATA,
+  header: ACCOUNTS_DATA.header,
+  sider: ACCOUNTS_DATA.sider,
 };

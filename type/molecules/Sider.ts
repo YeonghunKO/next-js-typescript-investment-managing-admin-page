@@ -6,6 +6,7 @@ type siderItemDataType = {
   text: string;
   href: valueOf<typeof ROUTER>;
   icon: keyof IconsKey;
+  isActive?: boolean;
 };
 
 type SiderDataType = siderItemDataType[];

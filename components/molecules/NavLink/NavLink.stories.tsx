@@ -1,3 +1,4 @@
+import { IconsKey } from '@components/atoms/Icons/Icon';
 import Theme from '@components/particles/Theme';
 import { ROUTER } from '@constants/router';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -15,6 +16,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   children: '네브링크',
   href: ROUTER.ACCOUNTS,
-  icon: { type: 'Bell' },
+  icon: { type: 'Bell' as keyof IconsKey },
+  isActive: true,
   backgroundColor: Theme.grey100,
 };
