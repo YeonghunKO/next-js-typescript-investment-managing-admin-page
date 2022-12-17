@@ -1,3 +1,4 @@
+import { ACCESS_TOKEN } from '@constants/cookie';
 import { handleHTTPResponseError } from '@constants/validator';
 import { useMutation } from '@tanstack/react-query';
 import type { authInputProps } from '@type/molecules/LoginInputForm';
@@ -20,7 +21,7 @@ const useLoginQuery = (
       }: {
         data: { accessToken: string; user: any };
       }) => {
-        cookies.set('access_token', accessToken, {
+        cookies.set(ACCESS_TOKEN, accessToken, {
           path: '/',
           expires: expiresTime,
         });

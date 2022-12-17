@@ -1,5 +1,6 @@
 import Button from '@components/atoms/Button';
 import Icon from '@components/atoms/Icons/Icon';
+import { ACCESS_TOKEN } from '@constants/cookie';
 import { ROUTER } from '@constants/router';
 import type { HeaderType } from '@type/molecules/Header';
 import { useRouter } from 'next/router';
@@ -21,7 +22,7 @@ const Header = ({ header }: HeaderType) => {
 
   const handleLogOut = () => {
     router.push(ROUTER.LOGIN);
-    cookie.remove('access_token');
+    cookie.remove(ACCESS_TOKEN);
   };
   return (
     <S.Container>
