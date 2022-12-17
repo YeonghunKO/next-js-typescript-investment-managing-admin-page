@@ -24,6 +24,12 @@
       "@hooks/*": ["hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "server/generateData.ts",
+    "server/server.ts"
+  ],
   "exclude": ["node_modules"]
 }

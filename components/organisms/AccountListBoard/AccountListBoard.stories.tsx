@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import type { AxiosResponse } from 'axios';
 import { ACCOUNTS_DATA } from 'data/accounts';
 import AccountListBoard from './AccountListBoard';
-
+// @ts-ignore
 const accountTableBody: AxiosResponse<any[]> = {
   data: [
     {
