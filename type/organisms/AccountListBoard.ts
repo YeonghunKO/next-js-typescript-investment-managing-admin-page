@@ -5,6 +5,8 @@ import type { AxiosResponse } from 'axios';
 interface AccountListBoardType {
   accountTableHeader: string[];
   dropDown: DropDownDataType[];
+  isLoading: boolean;
+  isError: boolean;
   accountTableBody?: AxiosResponse<AccountType[]>;
 }
 

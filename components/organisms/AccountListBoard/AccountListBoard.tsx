@@ -16,15 +16,12 @@ const AccountListBoard = ({
   accountTableHeader,
   dropDown,
   accountTableBody,
+  isError,
+  isLoading,
 }: AccountListBoardType) => {
   const [errorMessage, setErrorMessage] = useState('');
-  const {
-    isLoading,
-    isError,
-    isFetching,
-    accountQueryParams,
-    setAccountQueryParams,
-  } = useGetAccountQuery(setErrorMessage);
+  const { isFetching, accountQueryParams, setAccountQueryParams } =
+    useGetAccountQuery(setErrorMessage);
 
   const totalPagesNumber =
     accountTableBody?.headers &&

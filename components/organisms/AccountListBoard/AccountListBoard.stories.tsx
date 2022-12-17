@@ -533,6 +533,8 @@ const Template: ComponentStory<typeof AccountListBoard> = args => (
 export const Basic = Template.bind({});
 
 Basic.args = {
+  isLoading: false,
+  isError: false,
   accountTableHeader: ACCOUNTS_DATA.accountListBoard.accountTableHeader,
   dropDown: ACCOUNTS_DATA.accountListBoard.dropDown,
   accountTableBody: accountTableBody,
