@@ -7,12 +7,17 @@ import { accountDataState } from 'store/accountDataAtoms';
 
 const Account = () => {
   const { accountListBoard, ...restData } = useRecoilValue(accountDataState);
-  
-  const { data,isError,isLoading } = useGetAccountQuery();
+
+  const { data, isError, isLoading } = useGetAccountQuery();
 
   return (
     <Layout {...restData}>
-      <AccountListBoard isError={isError} isLoading={isLoading} accountTableBody={data} {...accountListBoard} />
+      <AccountListBoard
+        isError={isError}
+        isLoading={isLoading}
+        accountTableBody={data}
+        {...accountListBoard}
+      />
     </Layout>
   );
 };
