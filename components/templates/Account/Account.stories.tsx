@@ -1,14 +1,20 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Account from './Account';
+
+import { useState } from 'react';
+
 import * as S from '@components/organisms/AccountListBoard/AccountListBoard.styles';
 import AccountListNav from '@components/molecules/AccountListNav';
-import { Paper, Table, TableContainer } from '@mui/material';
 import AccountTableHead from '@components/atoms/AccountTable/AccountTableHead';
 import AccountTableBody from '@components/atoms/AccountTable/AccountTableBody';
 import Pagination from '@components/atoms/Pagination';
-import { ACCOUNTS_DATA } from 'data/accounts';
-import { useState } from 'react';
 import Layout from '@components/organisms/Layout';
+
+import { Paper, Table, TableContainer } from '@mui/material';
+
+import { ACCOUNTS_DATA } from 'data/accounts';
+
+import { useRecoilValue } from 'recoil';
+import { accountDataState } from 'store/accountDataAtoms';
 
 // 30개의 랜덤한 accounts
 const accountTableBodyData = [
@@ -346,7 +352,7 @@ const accountTableBodyData = [
 
 const MockAccount = () => {
   const [page, setPage] = useState(1);
-
+  const data = useRecoilValue(accountDataState);
   const [
     accountTableBodyDataByPageNumber,
     setAccountTableBodyDataByPageNumber,
@@ -366,7 +372,7 @@ const MockAccount = () => {
   };
 
   return (
-    <Layout>
+    <Layout {...data}>
       <S.Container>
         <S.Content>
           <AccountListNav
