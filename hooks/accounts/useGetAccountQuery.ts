@@ -7,7 +7,7 @@ import InvestmentAccount from 'lib/api/accounts';
 import { useRecoilState } from 'recoil';
 
 export const useGetAccountQuery = (
-  setErrorMessage: React.Dispatch<React.SetStateAction<string>>
+  setErrorMessage?: React.Dispatch<React.SetStateAction<string>>
 ) => {
   const { data: initData } = useQuery<
     AxiosResponse<AccountType[]>,

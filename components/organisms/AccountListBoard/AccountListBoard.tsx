@@ -2,8 +2,6 @@ import Loader from '@components/atoms/Loader';
 // import AccountList from '@components/molecules/AccountList';
 import AccountListNav from '@components/molecules/AccountListNav';
 import { useGetAccountQuery } from '@hooks/accounts/useGetAccountQuery';
-import { useRecoilValue } from 'recoil';
-import { accountDataState } from 'store/accountDataAtoms';
 import * as S from './AccountListBoard.styles';
 
 import { Paper, Table, TableContainer } from '@mui/material';
@@ -12,28 +10,31 @@ import AccountTableHead from '@components/atoms/AccountTable/AccountTableHead';
 import { useMemo, useState } from 'react';
 import Pagination from '@components/atoms/Pagination';
 import ErrorModal from '@components/molecules/ErrorModal';
+import type { AccountListBoardType } from '@type/organisms/AccountListBoard';
 
-const AccountListBoard = () => {
+const AccountListBoard = ({
+  accountTableHeader,
+  dropDown,
+  accountTableBody,
+}: AccountListBoardType) => {
   const [errorMessage, setErrorMessage] = useState('');
   const {
     isLoading,
     isError,
-    data,
     isFetching,
     accountQueryParams,
     setAccountQueryParams,
   } = useGetAccountQuery(setErrorMessage);
-  const {
-    accountListBoard: { accountTableHeader, dropDown },
-  } = useRecoilValue(accountDataState);
 
   const totalPagesNumber =
-    data?.headers &&
-    new Object(data.headers).hasOwnProperty('x-total-count') &&
-    Math.ceil(parseInt(data.headers['x-total-count'] as string) / 20);
+    accountTableBody?.headers &&
+    new Object(accountTableBody.headers).hasOwnProperty('x-total-count') &&
+    Math.ceil(
+      parseInt(accountTableBody.headers['x-total-count'] as string) / 20
+    );
 
   const accountTableBodyData = useMemo(() => {
-    return data?.data?.map(
+    return accountTableBody?.data?.map(
       ({
         broker_id,
         status,
@@ -56,7 +57,7 @@ const AccountListBoard = () => {
         created_at,
       })
     );
-  }, [data]);
+  }, [accountTableBody]);
 
   if (isLoading) {
     return <Loader />;
