@@ -1,11 +1,7 @@
-type DropDownData = {
-  id: number;
-  label: 'broker_id' | 'is_active' | 'status';
-  data: any[];
-};
+import type { DropDownDataType } from '@type/atoms/DropDown';
 
 interface AccountListNavType {
-  dropDownData: DropDownData[];
+  dropDownData: DropDownDataType[];
 }
 
 export type { AccountListNavType };

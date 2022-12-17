@@ -1,11 +1,18 @@
 import type { AccountQueryParams } from '@type/common';
 
+type DropDownMenuDataType = { label: string; value: string };
+
+type DropDownDataType = {
+  id: number;
+  label: 'broker_id' | 'is_active' | 'status';
+  data: DropDownMenuDataType[];
+};
 interface DropDownType {
-  data: { label: string; value: string }[];
+  data: DropDownMenuDataType[];
   label: 'broker_id' | 'is_active' | 'status';
   updateQueryParamsOnDropDownChange: (name: string, value: string) => void;
 
   queryParams: AccountQueryParams;
 }
 
-export type { DropDownType };
+export type { DropDownType, DropDownDataType };
