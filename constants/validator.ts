@@ -15,7 +15,7 @@ export const LOGIN_VALIDATION_ERRORS = {
   REQUIRED_PASSWORD: '* 비밀번호를 입력해주세요',
   INVALID_EMAIL: '* 이메일 형식을 다시 확인해 주세요.',
   REQUIRED_EMAIL: '* 이메일을 입력해 주세요.',
-  UNEXPECTED_ERROR: '다시 로그인 주세요.',
+  UNEXPECTED_ERROR: '다시 로그인 해 주세요.',
 };
 
 export const ACCOUNTS_VALIDATION_ERRORS = {
