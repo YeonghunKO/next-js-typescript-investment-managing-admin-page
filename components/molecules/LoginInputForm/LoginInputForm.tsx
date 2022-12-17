@@ -24,12 +24,12 @@ const LoginInputForm = ({
   return (
     <>
       <S.Form onSubmit={onSubmit} {...props}>
-        {input?.map((item, idx) => (
+        {input?.map(({ onChangeType, ...item }, idx) => (
           <LoginInput
             key={idx}
             {...item}
-            onChange={handleInputValue(item.onChangeType)}
-            value={userInfo[item.onChangeType]}
+            onChange={handleInputValue(onChangeType)}
+            value={userInfo[onChangeType]}
           />
         ))}
 
