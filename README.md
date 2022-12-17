@@ -4,6 +4,8 @@
 
 - [기업과제세부내용](https://pollen-port-115.notion.site/3-3-024ecdae5af6452788a9be19106ebeec)
 
+(_단, 계좌목록 페이지 까지 만 만들었습니다.(추후 사용자목록, 사용자 상세페이지 까지 만들 예정입니다)_)
+
 리팩토링 내용을 간단하게 말씀드리면, `atomic design` system과 `NEXT JS`를 도입하여:
 
 <span style="color:#fdc2ff">`코드의 재 사용성`</span>
@@ -55,9 +57,9 @@ password: test123
 
 # 👁‍🗨 데모
 
-|                                                        로그인 - 로그인하기                                                        |                                                      계좌목록 - 네비게이션                                                      |
-| :-------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
-| ![Dashboard - upload post](https://user-images.githubusercontent.com/65995664/171991129-e09deb1d-229a-4c13-865b-afec621ed705.gif) | ![Dashboard - save post](https://user-images.githubusercontent.com/65995664/172078062-0124e2ae-7b13-485e-8fd8-70ce5f2e9764.gif) |
+| 로그인 - 로그인하기 | 계좌목록 - 네비게이션 |
+| :---------------: | :-------------------: |
+| ![로그인](https://user-images.githubusercontent.com/65995664/208252859-128b68c9-4105-4a9d-9546-3841558f1e9a.gif)|![계좌목록 네비게이션](https://user-images.githubusercontent.com/65995664/208252864-183cdf0b-9ab3-4cd4-bf87-7bdad64e7d9b.gif)|
 
 # 🤖기술 스택
 
@@ -75,11 +77,16 @@ password: test123
 - 그리고 각각의 계획을 해결하기 위한 세부 계획을 정하였습니다. ex> 로그인 👉 input 컴포넌트를 만들고 atom으로 분류하기
 - 중간중간 버그가 발생하면 급한것은 바로 해결하고 급하지 않은것은 `나중에 할 것` 카테고리에 저장해 두었다가 나중에 해결했습니다
 
+# 📂 디렉토리 구조
+![디렉토리 구조](https://user-images.githubusercontent.com/65995664/208252872-e8ef9130-eb7c-43bd-9c3b-97fde1e87353.jpg)
+
+
 # ✏️ 리팩토링 내용
 
 ## 1. atomic design을 도입하여 아키텍쳐 개선
 
-atomic design은 쉽게 말해 웹페이지의 구성요소 최소 단위로 쪼개어 레고블럭처럼 조립하는 형태로 개발하는 것을 뜻합니다.
+atomic design은 쉽게 말해 웹페이지의 구성요소 최소 단위로 쪼개어 레고블럭처럼 조립하는 형태로 개발하는 것을 뜻합니다. 
+(위의 디렉토리 구조에서 처럼 component폴더를 아래와 같이 나누어 주었습니다.)
 
 쪼갤 수 없는 최소 단위인 atom을 시작으로 컴포넌트를 붙여나갑니다. 아래와 같이 컴포넌트 단위가 나뉘어 집니다.
 
@@ -93,25 +100,37 @@ atomic design은 쉽게 말해 웹페이지의 구성요소 최소 단위로 쪼
 
 (atomic design에 대해서 더 자세하게 알고 싶으시면 [링크](https://bradfrost.com/blog/post/atomic-web-design/)를 클릭해주세요😊)
 
-잘 만 사용한다면 개발 생산성은 물론이고 개발자와의 협업, 아니 비개발자와의 협업도 극대화 할 수 있을 것이라고 생각했습니다. 아래에서 상세하게 서술하겠지만, 컴포넌트를 비즈니스 로직과 잘 분리하면 정적으로 랜더링 되는 컴포넌트들에 대한 정보를 특정 파일안에 모아두고 관리할 수 있습니다.
 
-그럼 이 프로젝트를 잘 모르는 분들이더라도 그 파일만 변경하면 페이지안에 들어가는 요소를 수정할 수 있습니다.
+잘 만 사용한다면 개발 생산성은 물론이고 개발자와의 협업, 아니 비개발자와의 협업도 극대화 할 수 있을 것이라고 생각했습니다. 컴포넌트를 비즈니스 로직과 잘 분리하면 정적으로 랜더링 되는 컴포넌트들에 대한 정보를 특정 파일안에 모아두고 관리할 수 있습니다.
+
+아래는 계좌목록 페이지에 랜더링 될 컴포넌트 데이터 입니다. `data/accounts.ts` 파일에다가 데이터를 모아두었습니다.
+
+https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/data/accounts.ts#L10-L45
+
+그럼 이 프로젝트를 잘 모르는 분들이더라도 `accounts.ts` 변경하면 페이지안에 들어가는 요소를 수정할 수 있습니다.
 
 백문이 불여일견입니다. atomic design을 적용한 서비스를 storybook으로 문서화 하였습니다. 해당 <a style="color:#fdc2ff" href='https://639d27f821ef923b0aa5c3bf-ptoacsxdwq.chromatic.com/'>`스토리북 링크`</a>를 통해 바로 확인하실 수 있습니다
+
+단, tableBody같이 동적인 데이터는 `accounts.ts`에서 관리하지 않고 props로 따로 넘겨주었습니다.
+
+https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/components/templates/Account/Account.tsx#L8-L23
+
 
 ## 2. NEXT JS도입
 
 - middleware에서 cookie 유무 확인한 후 cookie가 있으면 계좌목록, 없으면 로그인 페이지로 redirecting해주었습니다
-- react-query의 prefetch와 + hydration을 이용해서 서버에서 미리 초기 데이터를 불러와 페이지를 만들기 때문에 페이지 시작하자마자 로딩이 없이 바로 화면을 볼 수 있습니다
+- account 페이지에서, react-query의 prefetch와 + hydration을 이용해서 서버에서 미리 초기 데이터를 불러와 페이지를 만들기 때문에 페이지 시작하자마자 로딩이 없이 바로 화면을 볼 수 있습니다.
+
+https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/pages/accounts.tsx#L22-L48
 
 ## 3. 라이브러리를 쓰지않고 직접 구현
 
-- pagination 직접 구현하였습니다
+- pagination 직접 구현하였습니다.
+  - https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/main/components/atoms/Pagination/Pagination.tsx
 - react-hook-form을 쓰지 않고 login input validator 구현하였습니다.
+https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/hooks/login/useLoginForm.ts#L8-L48
 
-​
 
-# 📂 디렉토리 구조
 
 # 📖TIL / 에러 / 아쉬운점 / 앞으로 해야 할 것
 
