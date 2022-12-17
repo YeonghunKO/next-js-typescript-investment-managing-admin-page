@@ -9,8 +9,7 @@ type INPUT_VARIANT =
 
 type InputType = 'text' | 'password' | string;
 
-interface LoginInputType {
-  placeholder: string;
+interface LoginInputType extends React.HTMLAttributes<HTMLInputElement> {
   variant: INPUT_VARIANT;
   type: InputType;
   [key: string]: any;
