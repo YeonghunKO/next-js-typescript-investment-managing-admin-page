@@ -1,31 +1,28 @@
-import { handleHTTPResponseError } from '@constants/validator';
-import { accountQueryParamsState } from 'store/accountQueryParamsAtoms';
-import { useQuery } from '@tanstack/react-query';
-import type { AccountQueryParams, AccountType } from '@type/common';
-import { AxiosError, AxiosResponse } from 'axios';
-import InvestmentAccount from 'lib/api/accounts';
-import { useRecoilState } from 'recoil';
+import { handleHTTPResponseError } from "@constants/validator";
+import { accountQueryParamsState } from "store/accountQueryParamsAtoms";
+import { useQuery } from "@tanstack/react-query";
+import type { AccountQueryParams, AccountType } from "@type/common";
+import { AxiosError, AxiosResponse } from "axios";
+import InvestmentAccount from "lib/api/accounts";
+import { useRecoilState } from "recoil";
 
 export const useGetAccountQuery = (
   setErrorMessage?: React.Dispatch<React.SetStateAction<string>>
 ) => {
-  const { data: initData } = useQuery<
-    AxiosResponse<AccountType[]>,
-    AxiosError<any, any>
-  >(['accountsList'], () =>
-    InvestmentAccount.getInvestmentAccount(accountQueryParams)
-  );
+  const queryClient = useQueryClient();
+  const initData: AxiosResponse<AccountType[], any> | undefined =
+    queryClient.getQueryData(["accountsList"]);
 
   const [accountQueryParams, setAccountQueryParams] =
     useRecoilState<AccountQueryParams>(accountQueryParamsState);
 
   const info = useQuery<AxiosResponse<AccountType[]>, AxiosError<any, any>>(
-    ['accountsList', accountQueryParams],
+    ["accountsList", accountQueryParams],
     () => {
       return InvestmentAccount.getInvestmentAccount(accountQueryParams);
     },
     {
-      onError: err => {
+      onError: (err) => {
         setErrorMessage && setErrorMessage(handleHTTPResponseError(err));
       },
       staleTime: 2000,
