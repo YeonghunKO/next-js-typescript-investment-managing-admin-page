@@ -44,11 +44,15 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
     });
 
     user.click(await findByElementByRole("login-button"));
+
     expect(pushMock).toHaveBeenCalledTimes(1);
 
-    // const errorButton = findByElementByRole();
+    // 올바른 사용자이므로 에러 버튼이 나타나지 않음
+    const errorButton = await findByElementByRole("error-button");
 
-    screen.debug();
+    expect(errorButton).not.toBeEmptyDOMElement();
+
+    // screen.debug();
   });
 
   it("id, password 올바르지 않게 입력후 실패케이스", async () => {
@@ -72,6 +76,7 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
 
     expect(pushMock).toHaveBeenCalledTimes(1);
 
+    // 올바르지 않은 사용자이므로 아래 에러가 나타남
     const errorTextElement = await findElementByText(
       "등록되지 않은 사용자입니다."
     );
