@@ -1,13 +1,13 @@
-import Button from '@components/atoms/Button';
-import Icon from '@components/atoms/Icons/Icon';
-import { ACCESS_TOKEN } from '@constants/cookie';
-import { ROUTER } from '@constants/router';
-import type { HeaderType } from '@type/molecules/Header';
-import { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
-import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
-import Cookies from 'universal-cookie';
-import * as S from './Header.styles';
+import Button from "@components/atoms/Button";
+import Icon from "@components/atoms/Icons/Icon";
+import { ACCESS_TOKEN } from "@constants/cookie";
+import { ROUTER } from "@constants/router";
+import type { HeaderType } from "@type/molecules/Header";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { isSiderVisibleState } from "@store/isSiderVisibleAtoms";
+import Cookies from "universal-cookie";
+import * as S from "./Header.styles";
 
 const Header = ({ header }: HeaderType) => {
   const [isSiderVisible, setIsSiderVisible] =
@@ -30,13 +30,13 @@ const Header = ({ header }: HeaderType) => {
         {isSiderVisible ? (
           <Icon
             icon="MenuClose"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
             onClick={toggleSider}
           />
         ) : (
           <Icon
             icon="MenuOpen"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
             onClick={toggleSider}
           />
         )}
@@ -46,13 +46,13 @@ const Header = ({ header }: HeaderType) => {
         {header.icons.map((icon, idx) => (
           <Icon
             key={idx}
-            style={{ cursor: 'pointer', margin: '0 0.4rem 0 0.4rem' }}
+            style={{ cursor: "pointer", margin: "0 0.4rem 0 0.4rem" }}
             icon={icon}
           />
         ))}
         <Button
-          icon={{ type: 'LogOut' }}
-          style={{ padding: '0.5rem', width: 'auto', marginLeft: '0.5rem' }}
+          icon={{ type: "LogOut" }}
+          style={{ padding: "0.5rem", width: "auto", marginLeft: "0.5rem" }}
           onClick={handleLogOut}
         >
           로그아웃

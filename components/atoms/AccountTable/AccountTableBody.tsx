@@ -2,22 +2,22 @@ import {
   ACCOUNT_NUMBER_FORMAT,
   BROKERS_FORMAT,
   STATUS_FORMAT,
-} from '@constants/formatDataString';
-import CheckBox from '@mui/material/Checkbox';
-import { TableBody, TableCell, TableRow } from '@mui/material';
+} from "@constants/formatDataString";
+import CheckBox from "@mui/material/Checkbox";
+import { TableBody, TableCell, TableRow } from "@mui/material";
 import type {
   AccountTableBodyType,
   AccountTableBodyDataType,
-} from '@type/atoms/AccountTable';
-import React from 'react';
+} from "@type/atoms/AccountTable";
+import React from "react";
 import {
   assetsColorDecider,
   formattingAccountNumber,
-} from 'utils/processFormatData';
+} from "@utils/processFormatData";
 
 const tabelStyle = {
-  align: 'center',
-  sx: { fontSize: '0.8rem', padding: '0.5rem' },
+  align: "center",
+  sx: { fontSize: "0.8rem", padding: "0.5rem" },
 } as const;
 
 const AccountTableBody = ({
@@ -25,7 +25,7 @@ const AccountTableBody = ({
   isCheckbox,
 }: AccountTableBodyType) => {
   return (
-    <TableBody sx={{ fontSize: '.5rem !important' }}>
+    <TableBody sx={{ fontSize: ".5rem !important" }}>
       {accountTableBodyData?.map(
         (
           {
@@ -47,7 +47,7 @@ const AccountTableBody = ({
                 key="checkboxHead"
                 align="center"
                 size="small"
-                sx={{ padding: '0.8rem' }}
+                sx={{ padding: "0.8rem" }}
               >
                 <CheckBox size="small" sx={{ padding: 0 }} />
               </TableCell>
@@ -58,10 +58,10 @@ const AccountTableBody = ({
                 align="center"
                 scope="row"
                 sx={{
-                  color: '#357ae1',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '0.75rem',
+                  color: "#357ae1",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "0.75rem",
                 }}
               >
                 {userName}
@@ -72,10 +72,10 @@ const AccountTableBody = ({
                 align="center"
                 scope="row"
                 sx={{
-                  color: '#357ae1',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '0.75rem',
+                  color: "#357ae1",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "0.75rem",
                 }}
               >
                 무명인
@@ -100,10 +100,10 @@ const AccountTableBody = ({
               {parseInt(payments).toLocaleString()}
             </TableCell>
             <TableCell {...tabelStyle}>
-              {is_active ? '활성화' : '비활성화'}
+              {is_active ? "활성화" : "비활성화"}
             </TableCell>
             <TableCell {...tabelStyle}>
-              {created_at.split('').slice(0, 10)}
+              {created_at.split("").slice(0, 10)}
             </TableCell>
           </TableRow>
         )

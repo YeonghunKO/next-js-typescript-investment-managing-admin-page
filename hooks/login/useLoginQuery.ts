@@ -1,10 +1,10 @@
-import { ACCESS_TOKEN } from '@constants/cookie';
-import { handleHTTPResponseError } from '@constants/validator';
-import { useMutation } from '@tanstack/react-query';
-import type { authInputProps } from '@type/molecules/LoginInputForm';
-import { AxiosError } from 'axios';
-import LoginRepository from 'lib/api/login';
-import Cookies from 'universal-cookie';
+import { ACCESS_TOKEN } from "@constants/cookie";
+import { handleHTTPResponseError } from "@constants/validator";
+import { useMutation } from "@tanstack/react-query";
+import type { authInputProps } from "@type/molecules/LoginInputForm";
+import { AxiosError } from "axios";
+import LoginRepository from "@lib/api/login";
+import Cookies from "universal-cookie";
 const useLoginQuery = (
   setServerAuthError: React.Dispatch<React.SetStateAction<string>>,
   setIsLoggingIn: React.Dispatch<React.SetStateAction<boolean>>
@@ -22,7 +22,7 @@ const useLoginQuery = (
         data: { accessToken: string; user: any };
       }) => {
         cookies.set(ACCESS_TOKEN, accessToken, {
-          path: '/',
+          path: "/",
           expires: expiresTime,
         });
       },

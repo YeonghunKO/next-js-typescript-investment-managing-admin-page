@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import * as S from './Login.styles';
-import logo from 'public/assets/img/December&Company.png';
-import Image from 'next/image';
-import LoginInputForm from '@components/molecules/LoginInputForm';
-import ErrorModal from '@components/molecules/ErrorModal';
-import { useRecoilValue } from 'recoil';
-import { loginUserInfo } from 'store/loginAtoms';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import * as S from "./Login.styles";
+import logo from "public/assets/img/December&Company.png";
+import Image from "next/image";
+import LoginInputForm from "@components/molecules/LoginInputForm";
+import ErrorModal from "@components/molecules/ErrorModal";
+import { useRecoilValue } from "recoil";
+import { loginUserInfo } from "@store/loginAtoms";
+import { useRouter } from "next/router";
 
-import useLoginQuery from '@hooks/login/useLoginQuery';
-import Head from 'next/head';
-import { ROUTER } from '@constants/router';
-import { LoginDataType } from '@type/templates/Login';
+import useLoginQuery from "@hooks/login/useLoginQuery";
+import Head from "next/head";
+import { ROUTER } from "@constants/router";
+import { LoginDataType } from "@type/templates/Login";
 
 const Login = ({ input }: LoginDataType) => {
   const router = useRouter();
-  const [serverAuthError, setServerAuthError] = useState('');
+  const [serverAuthError, setServerAuthError] = useState("");
   const userInfo = useRecoilValue(loginUserInfo);
   const [isLogginIn, setIsLoggingIn] = useState(false);
 
@@ -38,6 +38,7 @@ const Login = ({ input }: LoginDataType) => {
           width={100}
           height={100}
           placeholder="blur"
+          onError={() => alert("image error")}
         />
         <LoginInputForm
           input={input}

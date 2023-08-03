@@ -1,10 +1,10 @@
-import Button from '@components/atoms/Button';
-import LoginInput from '@components/atoms/LoginInput';
+import Button from "@components/atoms/Button";
+import LoginInput from "@components/atoms/LoginInput";
 
-import { useLoginForm } from '@hooks/login/useLoginForm';
-import { LoginInputFormType } from '@type/molecules/LoginInputForm';
-import React from 'react';
-import * as S from './LoginInputForm.styles';
+import { useLoginForm } from "@hooks/login/useLoginForm";
+import { LoginInputFormType } from "@type/molecules/LoginInputForm";
+import React from "react";
+import * as S from "./LoginInputForm.styles";
 
 const LoginInputForm = ({
   onSubmit,
@@ -34,7 +34,8 @@ const LoginInputForm = ({
         ))}
 
         <Button
-          icon={{ type: isLogginIn ? 'Spinner' : undefined, size: '18' }}
+          role="login-button"
+          icon={{ type: isLogginIn ? "Spinner" : undefined, size: "18" }}
           disabled={!isEmailValid || !isPasswordValid}
           width="100%"
         >

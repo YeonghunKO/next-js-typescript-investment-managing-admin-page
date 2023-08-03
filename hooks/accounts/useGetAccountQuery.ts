@@ -1,6 +1,6 @@
 import { handleHTTPResponseError } from "@constants/validator";
 import { accountQueryParamsState } from "store/accountQueryParamsAtoms";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { AccountQueryParams, AccountType } from "@type/common";
 import { AxiosError, AxiosResponse } from "axios";
 import InvestmentAccount from "lib/api/accounts";

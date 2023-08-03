@@ -21,7 +21,10 @@
           "@components": "./components",
           "@shared": "./shared",
           "@constants": "./constants",
-          "@hooks": "./hooks"
+          "@hooks": "./hooks",
+          "@utils": "./utils",
+          "@store": "./store",
+          "@lib": "./lib"
         }
       }
     ],

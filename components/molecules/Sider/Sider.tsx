@@ -1,9 +1,9 @@
-import type { SiderType } from '@type/molecules/Sider';
-import { useRecoilValue } from 'recoil';
-import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
-import NavLink from '../NavLink';
+import type { SiderType } from "@type/molecules/Sider";
+import { useRecoilValue } from "recoil";
+import { isSiderVisibleState } from "@store/isSiderVisibleAtoms";
+import NavLink from "../NavLink";
 
-import * as S from './Sider.styles';
+import * as S from "./Sider.styles";
 
 const Sider = ({ sider }: SiderType) => {
   const isSiderVisible = useRecoilValue(isSiderVisibleState);

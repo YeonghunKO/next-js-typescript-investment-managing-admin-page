@@ -1,11 +1,11 @@
-import Icon from '@components/atoms/Icons/Icon';
-import type { NavLinkType } from '@type/molecules/NavLink';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useRecoilValue } from 'recoil';
-import { isSiderVisibleState } from 'store/isSiderVisibleAtoms';
+import Icon from "@components/atoms/Icons/Icon";
+import type { NavLinkType } from "@type/molecules/NavLink";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useRecoilValue } from "recoil";
+import { isSiderVisibleState } from "@store/isSiderVisibleAtoms";
 
-import * as S from './NavLink.styles';
+import * as S from "./NavLink.styles";
 
 const NavLink = ({
   icon,
@@ -23,7 +23,7 @@ const NavLink = ({
         {...props}
         isSiderVisible={isSiderVisible}
         backgroundColor={backgroundColor}
-        className={pathname === href || isActive ? 'is-active' : ''}
+        className={pathname === href || isActive ? "is-active" : ""}
       >
         <div className="anchor__wrapper">
           {icon && <Icon icon={icon.type} size={icon.size} />}

@@ -1,9 +1,9 @@
-import { useDebounce } from '@hooks/common/useDebounce';
-import type { SearchInputType } from '@type/atoms/SearchInput';
-import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
-import { accountDataState } from 'store/accountDataAtoms';
-import * as S from './SearchInput.styles';
+import { useDebounce } from "@hooks/common/useDebounce";
+import type { SearchInputType } from "@type/atoms/SearchInput";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { accountDataState } from "@store/accountDataAtoms";
+import * as S from "./SearchInput.styles";
 
 const SearchInput = ({
   updateQueryParamsOnInputChange,

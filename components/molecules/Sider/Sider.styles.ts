@@ -1,11 +1,11 @@
-import { backgroundColor, textColour } from 'utils/colorStyles';
-import styled from 'styled-components';
+import { backgroundColor, textColour } from "@utils/colorStyles";
+import styled from "styled-components";
 
 export const Container = styled.aside<{ isVisible: boolean }>`
   ${({ theme }) => theme.flexColumn}
-  width:${({ isVisible }) => (isVisible ? '20vw' : '0')};
+  width:${({ isVisible }) => (isVisible ? "20vw" : "0")};
   background-color: ${({ theme }) => theme.primary800};
-  color: ${props => textColour(props)};
+  color: ${(props) => textColour(props)};
   transition: width 0.3s ease;
 `;
 
