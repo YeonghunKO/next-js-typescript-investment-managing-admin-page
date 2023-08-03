@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as S from "./Login.styles";
-import logo from "public/assets/img/December&Company.png";
 import Image from "next/image";
 import LoginInputForm from "@components/molecules/LoginInputForm";
 import ErrorModal from "@components/molecules/ErrorModal";
@@ -33,13 +32,15 @@ const Login = ({ input }: LoginDataType) => {
       </Head>
       <S.Container>
         <Image
-          src={logo}
+          src="/assets/img/December&Company.png"
           alt="company-logo"
           width={100}
           height={100}
           placeholder="blur"
           onError={() => alert("image error")}
+          blurDataURL="data:image/png;base64,imagedata"
         />
+
         <LoginInputForm
           input={input}
           onSubmit={onSubmitHandler}

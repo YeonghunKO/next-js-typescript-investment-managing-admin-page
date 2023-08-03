@@ -8,7 +8,6 @@ import {
 
 import { LOGIN_DATA } from "../../data/login";
 
-import { render } from "@testing-library/react";
 import Login from "../../components/templates/Login";
 import { customRender } from "../customRender";
 
