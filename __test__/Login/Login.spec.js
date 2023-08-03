@@ -43,8 +43,11 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
       user.type(passwordInput, "test123");
     });
 
-    user.click(getSubmitButton("login-button"));
+    user.click(await findByElementByRole("login-button"));
     expect(pushMock).toHaveBeenCalledTimes(1);
+
+    // const errorButton = findByElementByRole();
+
     screen.debug();
   });
 
@@ -65,14 +68,14 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
       user.type(passwordInput, "test123");
     });
 
-    await waitFor(() => {
-      user.click(getSubmitButton("login-button"));
-    });
+    user.click(await findByElementByRole("login-button"));
 
     expect(pushMock).toHaveBeenCalledTimes(1);
 
-    const button = await getElementByText("등록되지 않은 사용자입니다.");
-    expect(button).toBeInTheDocument();
+    const errorTextElement = await findElementByText(
+      "등록되지 않은 사용자입니다."
+    );
+    expect(errorTextElement).toBeInTheDocument();
     // screen.debug();
   });
 });
@@ -81,10 +84,10 @@ function getInputByPlaceHolder(placeholder) {
   return screen.getByPlaceholderText(placeholder);
 }
 
-function getSubmitButton(roleName) {
-  return screen.getByRole(roleName);
+function findByElementByRole(roleName) {
+  return screen.findByRole(roleName);
 }
 
-function getElementByText(text) {
+function findElementByText(text) {
   return screen.findByText(text);
 }
