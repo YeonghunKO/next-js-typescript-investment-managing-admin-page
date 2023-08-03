@@ -37,7 +37,7 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
     pushMock.mockClear();
   });
 
-  it.only("id, password 올바르게 입력후 성공케이스", async () => {
+  it("id, password 올바르게 입력후 성공케이스", async () => {
     const emailInput = getInputByPlaceHolder("이메일 입력");
     const passwordInput = getInputByPlaceHolder("비밀번호 입력");
 
