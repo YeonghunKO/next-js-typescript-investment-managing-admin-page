@@ -22,12 +22,10 @@ jest.mock("next/router", () => ({
 }));
 
 describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test123 로만 로그인 가능", () => {
+  const pushMock = jest.fn();
+
   beforeEach(() => {
     customRender(<Login {...LOGIN_DATA} />);
-  });
-
-  it("id, password 올바르게 입력후 성공케이스", async () => {
-    const pushMock = jest.fn();
 
     useRouter.mockReturnValue({
       query: {},
@@ -35,6 +33,11 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
       push: pushMock,
       // ... add the props or methods you need
     });
+
+    pushMock.mockClear();
+  });
+
+  it("id, password 올바르게 입력후 성공케이스", async () => {
     const emailInput = getInputByPlaceHolder("이메일 입력");
     const passwordInput = getInputByPlaceHolder("비밀번호 입력");
 
@@ -56,14 +59,6 @@ describe("로그인 페이지 테스트 - id: sinkyo@gmail.com , password: test1
   });
 
   it("id, password 올바르지 않게 입력후 실패케이스", async () => {
-    const pushMock = jest.fn();
-
-    useRouter.mockReturnValue({
-      query: {},
-      // return mock for push method
-      push: pushMock,
-      // ... add the props or methods you need
-    });
     const emailInput = getInputByPlaceHolder("이메일 입력");
     const passwordInput = getInputByPlaceHolder("비밀번호 입력");
 
