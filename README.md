@@ -124,6 +124,7 @@ https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/
 https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/pages/accounts.tsx#L22-L48
 
 ## 3. 라이브러리를 쓰지않고 직접 구현
+- 직접 구현하면 코드의 구성요소를 다 알기에, 디버깅이 수월하고 훨씬 유연하게 새로운 기능도 추가 가능합니다.
 
 - pagination 직접 구현하였습니다.
   - https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/main/components/atoms/Pagination/Pagination.tsx
