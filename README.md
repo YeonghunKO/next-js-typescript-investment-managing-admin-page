@@ -131,7 +131,8 @@ https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/
 - react-hook-form을 쓰지 않고 login input validator 구현하였습니다.
 https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/3b896fe4bd8eeb9777a2737367c730bac09eb096/hooks/login/useLoginForm.ts#L8-L48
 
-
+## 4. 테스트 코드를 추가해서 기능 문서화
+- jest와 react-testing library를 이용하여 [로그인 페이지를 테스트](https://github.com/YeonghunKO/next-js-typescript-investment-managing-admin-page/blob/main/__test__/Login/Login.spec.js) 하고 기능을 문서화 시켜보았습니다.
 
 # 📖TIL / 에러 / 아쉬운점 / 앞으로 해야 할 것
 
